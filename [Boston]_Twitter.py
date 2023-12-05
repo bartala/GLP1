@@ -1,4 +1,4 @@
-PTH = '/content/drive/MyDrive/Colab Notebooks/Boston/data/Twitter_GLP1'
+PTH = '.../Twitter_GLP1'
 
 import os
 import pandas as pd
@@ -9,7 +9,6 @@ from datetime import datetime
 
 df = pd.read_csv(os.path.join(PTH,'twitter_scrap.csv'))
 df = df[['id','text','likes','replies', 'retweets', 'quotes', 'searchQuery','timestamp']]
-df
 
 """Time range of tweets for each drug"""
 
@@ -25,10 +24,8 @@ result['time_duration'] = result['max'] - result['min']
 # Reset the index
 result = result.reset_index()
 
-# Display the result
-result
 
-"""## 3.1. Search keywords in posts"""
+"""## Search keywords in posts"""
 
 keywords = [
     'dulaglutide',
@@ -47,9 +44,9 @@ keywords = [
 
 df['searchQuery'].value_counts()
 
-"""# **4. Detect side effects**
+"""# **Detect side effects**
 
-## **3.1. Use scispacy for NER to identify ASD symptoms in posts**
+## ** Use scispacy for NER to identify ASD symptoms in posts**
 
 https://github.com/allenai/SciSpaCy#installation
 """
@@ -93,7 +90,7 @@ for text in df['text']:
 df['UML'] = UML_entities
 df.to_csv(os.path.join(PTH,'spacy.csv'), index = False)
 
-"""## **3.2. Create a list of biological entities using spacy data**"""
+"""## **Create a list of biological entities using spacy data**"""
 
 combinded_df = pd.read_csv(os.path.join(PTH,'spacy.csv'))
 combinded_df
@@ -124,7 +121,6 @@ for sublist in combinded_df['UML']:
 
 bio_entities = pd.DataFrame(bio_entities)
 bio_entities.columns = ['id','entity','searchQuery']
-bio_entities
 
 # Initialize an empty list to store the flattened elements
 flattened_list = []
@@ -140,8 +136,6 @@ flattened_list.reset_index(drop=True, inplace=True)
 
 # Rename the columns if needed
 flattened_list.columns = ['id', 'entity','searchQuery']
-
-flattened_list
 
 flattened_list.to_csv(os.path.join(PTH,'symptoms_list_twitter.csv'), index = False)
 
@@ -159,8 +153,6 @@ flattened_list = pd.read_csv(os.path.join(PTH,'symptoms_list_twitter.csv'))
 flattened_list = flattened_list[['id','entity','searchQuery']]
 flattened_list['entity'] =  flattened_list['entity'].astype(str)
 flattened_list['entity'] = flattened_list['entity'].str.lower()
-
-flattened_list
 
 # Filter entries with mor than 2 words in 'entity' column
 flattened_list = flattened_list[flattened_list['entity'].str.split().str.len() <= 2]
@@ -201,8 +193,6 @@ flattened_list['entity'] = flattened_list['entity'].apply(filter_side_effects)
 flattened_list = flattened_list[flattened_list['entity'].str.strip() != '']
 
 flattened_list['stem'] = [stemmer.stem(word) for word in flattened_list['entity']]
-
-flattened_list
 
 flattened_list.loc[flattened_list['entity']== 'anxiety depression','entity'] = 'depression'
 flattened_list.loc[flattened_list['entity']=='constipation nausea','entity'] = 'nausea'
@@ -270,9 +260,6 @@ grouped = flattened_list.groupby(['searchQuery', 'entity']).size().reset_index(n
 # Sort the DataFrame by count in descending order
 sorted_df = grouped.sort_values(by='count', ascending=False)
 
-# Display the result
-sorted_df
-
 len(set(sorted_df['entity'])) # number of side effects
 
 import matplotlib.pyplot as plt
@@ -301,13 +288,11 @@ edge_list = edge_list[edge_list['stem_A'] > edge_list['stem_B']]
 # Group by B.entity and A.entity, then count occurrences
 edge_list = edge_list.groupby(['stem_A', 'stem_B']).size().reset_index(name='count')
 
-edge_list
-
 edge_list.to_csv(os.path.join(PTH,'Twitter_side_efect_edgelist.csv'),index=False)
 
-"""# **5. Figures**
+"""# **Figures**
 
-## 5.1 wordcloud of clusters
+## wordcloud of clusters
 """
 
 import pandas as pd
