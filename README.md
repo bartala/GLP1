@@ -24,6 +24,14 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 `[Boston]_Twitter.py` - collect and analyze X (formerly Twitter) data.
 
+`[Boston]_Reddit` - collect and analyze Reddit data.
+
+`[Boston]_pubmed` - collect and analyze PubMed data.
+
+`[Boston]_sentiment_analysis` - analyze sentiment in Reddit and X.
+
+`[Boston]_GNN` - train a GNN model to classify nodes in the ASE-ASE network as frequent or not. **** >>> fix cand clarify!!!
+
  `requirements.txt` - required python packages to run the code.
 
 `.env.example` - variable and credentials needed to run the code.
