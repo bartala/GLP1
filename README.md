@@ -22,7 +22,9 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 ## Running the Code
 
-`requirements.txt` - required python packages to run the code.
+`[Boston]_Twitter.py` - collect and analyze X (formerly Twitter) data.
+
+ `requirements.txt` - required python packages to run the code.
 
 `.env.example` - variable and credentials needed to run the code.
 
