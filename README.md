@@ -30,7 +30,7 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 `[Boston]_sentiment_analysis` - analyze sentiment in Reddit and X.
 
-`[Boston]_GNN` - train a GNN model to classify nodes in the ASE-ASE network as frequent or not. **** >>> fix cand clarify!!!
+`[Boston]_GNN` - train a CGN model to classify edges in the ASE-ASE network as frequent or not.
 
  `requirements.txt` - required python packages to run the code.
 
