@@ -20,9 +20,9 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 # Repository Contents
 ## Papaer LateX Documents
 
-`/LaTex/sn-article.tex` - main manuscript
+`/LaTex/sn-article.tex` - main manuscript.
 
-`/LaTex/sb-bibluigraphy.bib` - refecences of the manuscript
+`/LaTex/sb-bibluigraphy.bib` - refecences of the manuscript.
 
 ## Running the Code
 
