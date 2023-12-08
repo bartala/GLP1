@@ -14,7 +14,7 @@ insomnia, and
 irritable).
 Detecting unknown ASE frequencies is critical in assessing the risk-benefit of drugs. 
 Currently, these frequencies are found via clinical trials. 
-Analyzing the ASE-ASE network using machine learning, we successfully identified (F1-score 0.83) frequent side effects.
+Analyzing the ASE-ASE network using machine learning, we successfully identified (F1-score 0.79; AUC 0.82) frequent side effects.
 Our model can be applied to any drug discussed online to identify unknown ASEs and predict their frequencies.
 
 # Repository Contents
