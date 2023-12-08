@@ -20,6 +20,10 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 # Repository Contents
 ## Papaer LateX Documents
 
+`sn-article.tex` - main manuscript
+
+`sb-bibluigraphy.bib` - refecences of the manuscript
+
 ## Running the Code
 
 `[Boston]_Twitter.py` - collect and analyze X (formerly Twitter) data.
