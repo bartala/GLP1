@@ -26,6 +26,8 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 ## Running the Code
 
+`ASE_ASE_Network.R` - code for building the ASE-ASE network.
+
 `[Boston]_GNN` - train a CGN model to classify edges in the ASE-ASE network as frequent or not.
 
 `[Boston]_Reddit` - collect and analyze Reddit data.
@@ -34,12 +36,9 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 `[Boston]_pubmed` - collect and analyze PubMed data.
 
-`ASE_ASE_Network.R` - code for building the ASE-ASE network.
-
-`plots.py` - create plots of long-tailed ASE distribution and barplot of ASE frequency category/
-
 `[Boston]_sentiment_analysis` - analyze sentiment in Reddit and X.
 
+`plots.py` - create plots of long-tailed ASE distribution and barplot of ASE frequency category/
 
  `requirements.txt` - required python packages to run the code.
 
