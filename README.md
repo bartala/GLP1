@@ -26,6 +26,8 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 
 ## Running the Code
 
+`.env.example` - variable and credentials needed to run the code.
+
 `ASE_ASE_Network.R` - code for building the ASE-ASE network.
 
 `[Boston]_GNN` - train a CGN model to classify edges in the ASE-ASE network as frequent or not.
@@ -41,8 +43,6 @@ Our model can be applied to any drug discussed online to identify unknown ASEs a
 `plots.py` - create plots of long-tailed ASE distribution and barplot of ASE frequency category/
 
  `requirements.txt` - required python packages to run the code.
-
-`.env.example` - variable and credentials needed to run the code.
 
 ## Miscellaneous
 Please send any questions you might have about the code and/or the algorithm to alon.bartal@biu.ac.il.
