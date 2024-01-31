@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-
-PTH = '/.../'
+PTH = '...'
 
 import os
 import pandas as pd
@@ -24,6 +21,8 @@ df_reddit_2['Combined_Content'] = df_reddit_2['Post Content'].fillna('') + ' ' +
 df_reddit_2 = df_reddit_2[['Post ID','Combined_Content','subreddit']]
 
 df_reddit = pd.concat([df_reddit, df_reddit_2])
+
+df_reddit
 
 """# Sentiment analysis Twitter"""
 
@@ -93,13 +92,28 @@ df_reddit['sentiment'] = df_reddit['polarity'].apply(categorize_sentiment)
 # Save the DataFrame with sentiment results to a new file or overwrite the existing DataFrame
 df_reddit.to_csv(os.path.join(PTH,'Reddit_GLP1','tweets_with_sentiment.csv'), index=False)
 
-
 """# Violon plots Twitter"""
 
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy import stats
+
+# Assuming df_filtered is your DataFrame
+replacements = {
+    'Trulicity': 'Dulaglutide',
+    'Byetta': 'Exenatide',
+    'Bydureon': 'Exenatide',
+    'Victoza': 'Liraglutide',
+    'Adlyxin': 'Lixisenatide',
+    'Ozempic': 'Semaglutide',
+    'Rybelsus': 'Semaglutide'
+}
+
+# Replace values in the 'searchQuery' column
+df_twitter['searchQuery'] = df_twitter['searchQuery'].replace(replacements)
+
+df_twitter['searchQuery'].value_counts()
 
 # Filter out neutral sentiment
 df_filtered = df_twitter[df_twitter['sentiment'].isin(['pos', 'neg'])]
@@ -176,12 +190,12 @@ plt.figure(figsize=(10, 6))
 heatmap_data = tukey_df.pivot(index='group1', columns='group2', values='p-adj')
 
 # Create a heatmap with p-values
-heatmap = sns.heatmap(heatmap_data, annot=True, fmt=".3f", cmap="YlGnBu", cbar=True, cbar_kws={'label': 'p-value'})
+heatmap = sns.heatmap(heatmap_data, annot=True, fmt=".2f", cmap="YlGnBu", cbar=True, cbar_kws={'label': 'p-value'})
 
 
 
 # Save the plot as a PDF
-plt.savefig("tukey_hearmap_Twitter.pdf", bbox_inches='tight')
+plt.savefig("tukey_hearmap_positive_x.pdf", bbox_inches='tight')
 
 plt.title("Tukey's HSD Post-Hoc Test")
 
