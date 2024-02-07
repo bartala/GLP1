@@ -1,4 +1,4 @@
-PTH = '.../Twitter_GLP1'
+PTH = '.../X_GLP1'
 
 import os
 import pandas as pd
