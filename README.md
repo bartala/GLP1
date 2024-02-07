@@ -47,7 +47,7 @@ Please send any questions you might have about the code and/or the algorithm to 
 If you find this code useful for your research, please consider citing us:
 ```
 @article{Bartal2023GLP1,
-  title     = {Integrating Online Biomedical Research and Social Media Analyses in Tracking and Understanding The GLP-1 Agonist Adverse Effects},
+  title     = {Social Media Analytics for Knowledge Discovery Beyond Standard Pharmacovigilance: Uncovering Side Effects of GLP-1 Receptor Agonists},
   author    = {Bartal, Alon and Pliskin, N. and Jagodnik, Kathleen M. and Avi, Seidmann},
   journal   = {},
   volume    = {},
