@@ -1,21 +1,15 @@
 # GLP1 Project
 
 ## Overview
-Glucagon-like peptide-1 (GLP-1) receptor agonists, widely prescribed for weight loss, offer a non-invasive solution for obesity. 
-Social media users who discuss GLP-1 drugs share their experiences, including adverse side effects (ASE). 
-%Recent studies highlight unofficial GLP-1 ASE, such as suicidal thoughts. 
-Exploring the connection between co-occurring ASEs is crucial due to individual differences often missed in small-scale experiments.
-We collected 11,700 posts from $\mathbb{X}$, 489,529 Reddit posts, and 14,502 PubMed manuscripts related to GLP-1 receptor agonists.
-Utilizing a Natural Language Processing (NLP) technique of named entity recognition (NER), we extracted adverse side effects (ASEs) to form a co-mention ASE-ASE network. 
-Employing network analysis techniques such as clustering and graph neural network (GNN) classification, we identified groups of ASEs and revealed frequencies of unknown ASEs.
-Analyzing social media data and biomedical studies on GLP-1, we identified GLP-1 ASEs not found in official manufactures' ASE lists (e.g., 
-nightmare,
-insomnia, and
-irritable).
-Detecting unknown ASE frequencies is critical in assessing the risk-benefit of drugs. 
-Currently, these frequencies are found via clinical trials. 
-Analyzing the ASE-ASE network using machine learning, we successfully identified (F1-score 0.79; AUC 0.82) frequent side effects.
-Our model can be applied to any drug discussed online to identify unknown ASEs and predict their frequencies.
+Social media data has great potential to uncover novel ASEs unreported by manufacturers and explore patterns of co-occurring ASEs. 
+This exploration is vital due to the individual nuances often overlooked in small-scale clinical trials.
+We collected 11,185 $\mathbb{X}$ posts, 489,529 Reddit posts, and 13,491 PubMed publications related to GLP-1 receptor agonists. 
+By analyzing textual content using a Named Entity Recognition (NER) technique, we identified ASEs on social media that were not reported by manufacturers.
+Next, we constructed an ASE-ASE network, clustered ASEs with similar effects into groups, and estimated the frequency of unknown ASEs by training a Graph Convolutional Network model.
+Our data analytics approach uncovered 21 potential ASEs on social media, such as irritability and numbness, beyond the knowledge of existing pharmacovigilance data.
+Furthermore, our novel computational method successfully distinguished between frequent and infrequent ASEs (F1-score 0.79; AUC 0.82).
+Our knowledge-discovery approach can be applied to any drug discussed on social media to identify novel ASEs and estimate their frequencies.
+}
 
 # Repository Contents
 ## Papaer LateX Documents
