@@ -28,7 +28,7 @@ Our knowledge-discovery approach can be applied to any drug discussed on social 
 
 `[Boston]_Reddit` - collect and analyze Reddit data.
 
-`[Boston]_Twitter.py` - collect and analyze X (formerly Twitter) data.
+`[Boston]_X.py` - collect and analyze X (formerly Twitter) data.
 
 `[Boston]_pubmed` - collect and analyze PubMed data.
 
