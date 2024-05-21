@@ -1,1 +1,1658 @@
+%Version 2.1 April 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%}
+\documentclass[referee,bst/sn-basic]{sn-jnl}% referee option is meant for double line spacing
 
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst, sn-mathphys.bst. %  
+ 
+%%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+%%\documentclass[sn-mathphys,Numbered]{sn-jnl}% Math and Physical Sciences Reference Style
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
+%%\documentclass[sn-chicago]{sn-jnl,Numbered}% Chicago-based Humanities Reference Style
+%%\documentclass[default]{sn-jnl}% Default
+%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{longtable}%----->
+\usepackage{rotating}
+\usepackage{comment}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{setspace} % Add this line to use the setspace package
+\doublespacing % Use \doublespacing to set the document to double-spaced
+\raggedright % Set text to be left-justified (ragged right)
+\usepackage[numbers]{natbib}
+
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%\jyear{2021}%
+
+%% as per the requirement new theorem styles can be included as shown below
+%\theoremstyle{thmstyleone}%
+%\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+%\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Leveraging AI for SMASH: Social Media Analytics for Adverse Side effect Hunting
+}
+
+
+% 
+
+%%=============================================================%%
+%% Prefix	-> \pfx{Dr}
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+%% Degrees	-> \dgr{MSc, PhD}
+%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\begin{comment}
+    
+\author*[1]{\fnm{Alon} \sur{Bartal}}\email{bartal.alon@biu.ac.il}
+
+\author[2]{\fnm{Nava} \sur{Pliskin}}\email{pliskinn@bgu.ac.il}
+%\equalcont{These authors contributed equally to this work.}
+
+\author[1]{\fnm{Kathleen M.} \sur{Jagodnik}}\email{kathleen.jagodnik@biu.ac.il}
+%\equalcont{These authors contributed equally to this work.}
+
+\author[3]{\fnm{Lena} \sur{Novack}}\email{novack@bgu.ac.il}
+%\equalcont{These authors contributed equally to this work.}
+
+\author[4]{\fnm{Abraham} \sur{Seidmann}}\email{avis@bu.edu}
+%\equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{The School of Business Administration}, \orgname{Bar-Ilan University}, \orgaddress{\street{Max and Anna Web}, \city{Ramat Gan}, \postcode{5290002}, \state{Israel}}}
+
+\affil[2]{\orgdiv{Department of Industrial Engineering \& Management}, \orgname{Ben-Gurion University of the Negev}, \orgaddress{\street{David Ben Gurion Blvd.}, \city{Beer-Sheva}, \postcode{84105}, \state{Israel}}}
+
+\affil[3]{\orgdiv{Questrom School of Business}, \orgname{Boston University}, \orgaddress{\street{Commonwealth Avenue}, \city{Boston}, \postcode{02215}, \state{MA}, \country{USA}}}
+
+\affil[4]{\orgdiv{Soroka University Medical Center}, \orgname{Ben-Gurion University of the Negev}, \orgaddress{\street{David Ben Gurion Blvd.}, \city{Beer-Sheva}, \postcode{84105}, \state{Israel}, \country{USA}}}
+
+\end{comment}
+%%================================%%
+%% structured abstract %%
+%%================================%%
+
+\abstract{ 
+To obtain early warning of adverse side effects (ASEs) of medications, which can be dangerous and costly, we developed an AI-based tool, SMASH (\textbf{S}ocial \textbf{M}edia \textbf{A}nalytics for \textbf{S}ide effect \textbf{H}unting). 
+The SMASH methodology integrates social media analytics, Named Entity Recognition, and Graph Convolutional Networks to analyze social media, ChatGPT, and pharmaceutical data, to uncover potential ASEs overlooked in clinical trials. 
+We applied SMASH to glucagon-like peptide 1 receptor agonists (GLP-1 RAs), medications for diabetes and obesity treatment that are forecasted to reach a market value of \$133.5 billion by 2030, and discovered 21 potential ASEs, overlooked during regulatory approval. 
+Additionally to previous studies, which focused mainly on identifying ASEs, we developed a method to validate potential ASEs by estimating their frequencies (F1-score 0.79, AUC 0.82).
+Revolutionizing ASE knowledge discovery via AI-driven analytics, we augment IS research and present a proof of concept about proactive risk mitigation in the pharmaceutical arena.
+}
+
+\keywords{
+Adverse Side Effect (ASE),
+Artificial Intelligence (AI),
+Glucagon-Like Peptide 1 Receptor Agonist (GLP-1 RA),
+Graph Convolutional Network (GCN),
+Knowledge Discovery,
+Proof of Concept,
+Social Media Analytics
+}
+\maketitle
+
+%------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+%------------------------------------------------------------------
+
+Early detection of adverse side effects (ASEs) of medications is crucial for pharmaceutical risk management and patient care in the realm of information systems and business as it allows for proactive risk mitigation, improves patient outcomes, ensures regulatory compliance, and positively impacts business performance.
+
+Controlled clinical trials often fail to capture real-world scenarios and may overlook rare or latent ASEs, leading to drug withdrawals post-approval, as happened with thalidomide and Vioxx \cite{kim2012institutional,berlin2008adverse,ponrartana2021safety,ridings2013thalidomide}.
+Unforeseen ASEs contribute significantly to morbidity, mortality, and economic burden, emphasizing the importance of accuratly evaluating ASEs for patient care and pharmaceutical risk management \cite{watanabe2018cost,gao2022does,martin2017much}.
+In recent years, the FDA has approved glucagon-like peptide 1 receptor agonists (GLP-1 RAs), such as Ozempic, which are effective in managing conditions such as obesity and type 2 diabetes \cite{novo-nordisk-ozempic-2017,moore2023glp}. 
+GLP-1 RAs have various ASEs, yet their complete profiles remain under-characterized due to limitations in clinical trials \cite{zhang2023glp}. 
+This highlights the necessity of supplementing existing drug ASE databases which suffer from incomplete reporting and indexing \cite{derry2001incomplete,nugent2016computational,foster2008use}, with alternative sources of information. 
+
+Social media analysis can be used for early detection of ASEs, often preceding FDA alerts, facilitating timely responses and improved pharmacovigilance \cite{lee2021use,loosier2021reddit,zhang2018utilizing,graves2022thematic,adjeroh2014signal}. 
+The surge in social media usage has revolutionized the way businesses access information, generate content, and engage in communication \cite{hu2019generating,ren2023know}.
+By analyzing social media data, companies gain insights into consumer preferences, personalize marketing strategies, and  predict stock trends \cite{hu2019generating,gunarathne2017whose}.
+Healthcare businesses leverage patient data from social media to advance medical knowledge and professional practices as well, complementing traditional research methods \cite{golder2023role}.
+To increase their health knowledge and exchange information, patients also utilize social platforms  \cite{xie2021unveiling} like Reddit, which, by allowing anonymous health discussions, reduce shame or stigma \cite{kamarudin2021study}.
+In fact, social media has proven particularly valuable for patients reporting ASEs \cite{lee2021use,golder2023role}.
+
+The analysis of social media faces challenges such as inherent bias, noise, and data reliability, however, requiring the development of natural language processing and machine learning techniques to accurately detect and analyze mentions of ASEs. \cite{convertino2018usefulness,pierce2017evaluation,feldman2015utilizing,patki2014mining,yang2015exploiting,wu2013exploiting,moh2017adverse,adjeroh2014signal,liu2013azdrugminer}.
+
+%\subsection{ASE frequency}
+To address the challenges and research gaps discussed above, we present our SMASH (\textbf{S}ocial \textbf{M}edia \textbf{A}nalytics for Adverse \textbf{S}ide effect \textbf{H}unting) methodology, an AI-based computational approach to identify unreported ASEs. 
+SMASH used AI algorithms for social media analytics, Named Entity Recognition (NER), Graph Convolutional Networks (GCNs), and sentiment analysis. 
+It helps identify medications' potential ASEs via comprehensive analysis of diverse data sources, including social media data, biomedical articles, pharmaceutical databases, and ChatGPT. 
+The increasing popularity of GLP-1 RAs, evidenced by a surge in online searches \cite{han2023public} and social media posts \cite{keating2023semaglutide}, serves as the context for showcasing the early-warning capabilities of SMASH as a proof of concept.
+
+Our study makes five novel contributions to the IS and data analytics domains: 
+(1) developing the SMASH methodology to identify unreported ASEs in a timely manner that can serve as an effective early-warning sensor that supplements existing sources; 
+(2) analyzing rich datasets including massive social media posts and biomedical knowledge;
+(3) designing a trained Graph Convolutional Network (GCN) model \cite{zhang2019graph} for estimating ASE frequencies; 
+(4) developing a method for estimating the validity of potential ASEs; and 
+(5) constructing an ASE-ASE network, based on co-mentioned ASEs on social media to reveal groups of ASEs with similar network patterns. 
+%(2) Development of a model that can identify which ASEs are of high validity;
+We also contribute to the healthcare domain through a multifaceted knowledge-discovery methodology that draws upon the IS domain.
+Our approach mines data from social media, extending beyond information provided by drug manufacturers and clinical trials, to comprehensively identify and analyze the ASEs of GLP-1 RAs. 
+Moreover, our sentiment analysis offers distinct perspectives into user perceptions of GLP-1 RAs, empowering stakeholders to gauge market attitudes effectively.
+
+Organization:
+Section \ref{sec:LR} sets the theoretical background for developing the SMASH methodology to  identify ASEs. 
+Section \ref{sect:RQ} elaborates upon the research questions. 
+Section \ref{sec: material} provides a detailed description of the methodology employed and presents the characteristics of the data sources used to produce the results presented in Section \ref{sec:res}.
+Finally, Section \ref{sec:discussion} suggests avenues for future research in the IS domain and discusses contributions to the IS domain, insights for stakeholders, and managerial implications. 
+%the discussion in Section \ref{sec:conclusions} presents the conclusions and suggests avenues for future research in the IS domain.
+
+
+%------------------------------------------------------------------
+\section{Literature Review}
+\label{sec:LR}
+%------------------------------------------------------------------
+
+% Business challenges of introducing new products
+When introducing a new product, a company faces the risk that it has not been sufficiently tested prior to release and, therefore, may require a costly recall at a later time, often involving lawsuits, government fines, damage to the company’s reputation, loss of market value, and lost sales  \cite{berman2021managing,govindaraj2004market}. 
+The recall of Firestone tires by the Bridgestone Corporation, for example, following the association of the tires with rollover accidents in Ford Explorer sport utility vehicles, caused market losses for both companies that far exceeded the recall’s direct costs \cite{govindaraj2004market}.
+
+Pharmaceutical companies encounter many challenges when introducing newly developed drugs \cite{marques2020decision}.
+The development process involves drug discovery, pre-clinical tests, clinical trials involving humans, regulatory approval, and product launch, along with the pharmacovigilance processes that follow \cite{marques2020decision,lainez2012challenges}.
+In recent years, investments in pharmaceutical research and development have increased, while success rates in developing effective  medications have decreased \cite{marques2020decision,wang2015racing}. 
+Following the development process, the commercial launch and marketing stage entails tough challenges, including perceptions of patients and healthcare payers that may involve a lack of understanding of the new medication’s therapeutic value, lack of differentiation vis-a-vis existing drugs, and cost-benefit assessments that may be unfavorable \cite{marques2020decision}. 
+The reported ASEs of a new medication influence its successful adoption by affecting not only its likelihood to be prescribed by physicians \cite{garjon2012adoption,lubloy2014factors}, but also the public’s willingness to use it \cite{vlasnik2005medication}.
+
+%\subsection{Problems in clinical trails}
+Controlled clinical trials conducted as part of regulatory approval processes may miss real-world scenarios \cite{kim2012institutional} and thus overlook rare or latent ASEs \cite{berlin2008adverse}. 
+Indeed, some FDA-approved drugs have been withdrawn after widespread use due to subsequently discovered ASEs \cite{ponrartana2021safety}. 
+For instance, thalidomide and Vioxx were withdrawn due to birth defects and to increased heart attack and stroke risks, respectively \cite{ridings2013thalidomide}.
+
+ASEs of medications are a significant cause of morbidity, amounting to an estimated annual cost of \$495-672 billion in the U.S. \cite{watanabe2018cost}.
+Accurate evaluation of ASE frequencies has significant importance in clinical practice for optimal patient care and in efforts of pharmaceutical companies to minimize the risk of withdrawal due to severe ASEs \cite{gao2022does}, and avoiding expensive new clinical trials  \cite{martin2017much}.
+
+%\subsection{Intro GLP-1}
+In recent years, the FDA has approved a new medication family of glucagon-like peptide 1 receptor agonists (GLP-1 RAs) to treat diabetes and obesity, including Ozempic \cite{novo-nordisk-ozempic-2017}.
+Obesity significantly increases the risk of type 2 diabetes (T2D), high blood pressure, heart disease, respiratory problems, joint problems, and gallbladder disease \cite{cdc_diabetes, pearson2022variations}.
+Its economic impact is projected to surpass 3\% of the U.S. gross domestic product in coming decades \cite{okunogbe2022economic}.
+GLP-1 RAs such as dulaglutide (Trulicity), liraglutide (Victoza), and semaglutide (Ozempic, Rybelsus) reduce weight, improve diabetic comorbidities, and lower blood sugar \cite{moore2023glp}. 
+%Over recent decades, obesity rates have nearly tripled, reaching a total of 1.9 billion overweight adults \cite{who-obesity}.
+
+%\subsection{ASEs of GLP-1}
+Although GLP-1 RAs are proving to be effective treatments of obesity and type
+2 diabetes, their ASEs include gastrointestinal, metabolic, eye, renal, urinary, and nutritional disorders \cite{zhang2023glp}. 
+The complete ASE profile of GLP-1 RAs remains under-characterized due to the limitations of clinical trials, posing risks for patients and compelling physicians to make prescribing decisions based on incomplete information.
+
+%\subsection{Drug ASEs databases}
+ASEs are documented in databases like FAERS \cite{fda-faers-2023}, SIDER \cite{kuhn2016sider}, MEDLINE \cite{ding2001mining}, and Embase \cite{elsevier-embase-2023}, which suffer from improper indexing \cite{derry2001incomplete} and incomplete reporting \cite{nugent2016computational}, with up to 86\% of ASEs going unreported \cite{nugent2016computational}. 
+%Additionally, publishing bias and practices that may conceal negative data in publications, lead to incomplete recording of ASEs \cite{ mlinaric2017dealing}. 
+The diversity of resources, heterogeneous and incomplete data \cite{nugent2016computational}, and patient failure to report ASEs \cite{foster2008use} further complicate definitive characterization of ASEs \cite{nugent2016computational}.
+
+
+%\subsection{Social media for ASE + challanges}
+Social media can supplement these information sources by allowing researchers to detect ASEs early \cite{lee2021use}.
+For example, social media analyses have been conducted to identify ASEs of medications for HIV \cite{loosier2021reddit}, chemotherapy for cancer \cite{zhang2018utilizing}, 
+and buprenorphine-naloxone treatment for opioid use \cite{graves2022thematic}. 
+Specifically, Reddit \cite{graves2022thematic, loosier2021reddit} and $\mathbb{X}$ \cite{zhang2018utilizing, hsu2017mining, jiang2013mining} have been used for knowledge discovery.
+Moreover, social media analysis has revealed that ASEs can be detected 3 to 35 months before an FDA alert is issued \cite{adjeroh2014signal}. 
+Hence, monitoring social media can help detect the need for labeling changes, black box warnings, or drug withdrawals \cite{lee2021use} in advance. 
+Additionally, increased online ASE discussions correlate with quicker drug recall times by facilitating efficient data identification and hence rapid dissemination of information to the public \cite{gao2022does}.
+
+ASEs in social media, posts can be identified manually \cite{convertino2018usefulness}.
+However, the vast volume of posts on generic social networks like Facebook and $\mathbb{X}$, as opposed to healthcare platforms, often contains the noise of non-informative discussions \cite{pappa2019harnessing}.
+Therefore, natural language processing (NLP) and machine learning (ML) methods have been developed to detect mentions of ASEs \cite{golder2023role}.
+For instance, using ML classifiers followed by manual review, Pierce et al. \cite{pierce2017evaluation} sampled 935,246 posts about 10 drugs, detecting only 6 posts of interest and 98,252 posts with resemblance to an ASE.
+Other examples of ML approaches for ASE detection include unsupervised relation extraction \cite{feldman2015utilizing}, binary classification of posts \cite{patki2014mining}, tensor-based methods \cite{yang2015exploiting}, discriminative classification and generative modeling \cite{wu2013exploiting}, sentiment analysis \cite{moh2017adverse}, peak-labeling signal fusion \cite{adjeroh2014signal}, and kernel-based learning with semi-supervised learning for classifying posts \cite{liu2013azdrugminer}.
+
+%\subsection{More research is required}
+%Whether social media improves pharmacovigilance studies or not \cite{Tregunno2015T},
+
+The use of social media for pharmacovigilance purposes is still in its infancy, and more research is required \cite{golder2023role,lee2021use,lee2021use,golder2023role} to identify and understand the circumstances in which social media analytics can enhance ASE knowledge discovery. 
+Studies of this nature present five main \textit{challenges}, all  addressed by our study:
+(1) Datasets -- Many studies focus on a single data source.
+    For instance, recent analysis of the top 100 results for TikTok videos tagged \#Ozempic revealed that most videos emphasized personal experiences and promoted Ozempic for weight loss, potentially contributing to increased demand \cite{basch2023descriptive}. 
+    That study stressed the importance of collaboration among healthcare professionals, regulatory bodies, and social media platforms to address challenges like drug shortages. 
+    Another small-scale and single-source study compared only 16 TikTok videos, highlighting how Ozempic users framed obesity as a disease, contradicting traditional diet approaches \cite{lennon2023can}.
+(2)
+    Analysis of domain-specific data -- Data focused on healthcare discussions are biased toward specific patients or drugs \cite{golder2023role}. 
+    Moreover, healthcare data lack the vast number of posts that are present on more generic networks like $\mathbb{X}$.
+(3)
+    Social media language -- The language used on social media is often highly informal, making it a challenge to extract user-expressed concepts, which are often nontechnical and descriptive \cite{sarker2015portable}.
+(4)
+     Reliability -- Signals from social media are questionable, as patients typically report mild and common ASEs \cite{lee2021use,golder2023role}.
+(5)
+    Low signal-to-noise ratio -- Generic social media platforms have a low proportion of relevant posts containing ASE descriptions \cite{lee2021use}.
+
+%\subsection{NLP}
+In the realm of artificial intelligence (AI), training Natural Language Processing (NLP) models, including those utilizing Named Entity Recognition (NER), is integral to knowledge extraction from unstructured text sources such as social media posts, electronic medical records, and medical literature \cite{ekbal2013bio,xie2021unveiling}.
+NER plays a crucial role in identifying biomedical entities such as drugs, symptoms, and diseases mentioned in the text, with potential implications for linking them to ASEs \cite{tarcar2019healthcare,xie2021unveiling,ekbal2013bio}. 
+NER models, leveraging deep-learning techniques \cite{li2020survey} 
+and utilizing contextual information surrounding entities within sentences, benefit from Large Language Models (LLMs) that capture domain-specific associations and are pre-trained on publicly and freely available text in books, articles, and webpages \cite{sciencefocus-gpt3}.
+LLMs can receive and generate text queries while adapting to a variety of language-related tasks beyond their primary training objective \cite{omiye2024large}.
+
+In the medical field, LLMs have been applied to tasks like responding to medical exams and addressing patient queries.
+Despite the risk of generating inaccurate outputs, healthcare providers are increasingly integrating LLMs into clinical applications \cite{lee2023benefits}. 
+Noteworthy examples include their use in medical resident training modules and in partnerships of healthcare providers that incorporate electronic health records \cite{statnews-chatgpt4-2023}. 
+Within the landscape of general LLMs, as exemplified particularly by OpenAI’s ChatGPT, the Generative Pre-trained Transformers (GPT) lineage is widely used  \cite{brown2020language}.
+
+%\subsection{ChatGPT}
+ChatGPT is an LLM known for generating informative text and mimicking human-like writing \cite{brown2020language}. 
+Since its introduction in 2022, ChatGPT has been widely used in various scientific domains, including mental health \cite{bartal2024ai, lamichhane2023evaluation} and medical research \cite{ruksakulpiwat2023using}.
+
+Computational algorithms have already facilitated understanding of ASEs, including identifying when they occur \cite{trajanov2023review}.
+Likewise, sentiment analyses of free text have helped researchers understand the subjective experiences of drug users and to identify ASEs  \cite{korkontzelos2016analysis,xie2022understanding}. 
+Additionally, computational methods can potentially describe the frequency of ASEs and characterize ASEs that tend to co-occur \cite{trajanov2023review}. 
+
+Although several studies have identified ASEs using social media data, there is little empirical research that analyzes rich and diverse datasets including social media data, biomedical texts, ChatGPT, and pharmaceutical databases, as well as the effectiveness of this practice. 
+Our research fills this gap and addresses the five challenges mentioned above, contributing to the identification of ASEs. 
+SMASH offers stakeholders a framework for monitoring and analyzing signals from social media, providing valuable insights to support informed decision-making.
+
+
+%------------------------------------------------------------------
+\section{Research Questions and Hypotheses}
+\label{sect:RQ}
+%------------------------------------------------------------------
+We have formulated three research questions (RQs) and three hypotheses (\textit{Hs}) involving the ASEs associated with GLP-1 RAs:
+
+\textbf{RQ1.} 
+How can we identify novel ASEs of GLP-1 RAs based on social media discussions?
+
+Many patients frequently use social media platforms to seek advice and exchange experiences with others, especially concerning ASEs \cite{ozurumba2022multi,chen2021social}.
+Thus, we hypothesize:
+
+\textit{H1.} 
+A Named Entity Recognition (NER) model applied to social media posts can uncover potential ASEs of GLP-1 RAs unobserved by pharmacovigilance methods.
+
+\textbf{RQ2.} 
+What are the mechanisms and conditions under which social media can enhance pharmacovigilance for identifying novel ASEs?
+
+Social media can enhance pharmacovigilance by enabling the early detection of ASEs of medications through real-time monitoring of user-reported experiences \cite{lee2021use} thanks to broad patient engagement and diverse perspectives.
+The frequency of ASE mentions on social media implies the prevalence and potential severity of a particular ASE. 
+Thus, we hypothesize:
+
+\textit{H2.}
+High-frequency mentions of ASEs in social media are informative for pharmacovigilance, indicating emerging safety concerns that warrant closer monitoring and intervention.
+
+\textbf{RQ3.} 
+How can we estimate the frequency of identified GLP-1 RA ASEs overlooked during regulatory approval?
+
+ASEs that share similar biological pathways or mechanisms of action have a higher likelihood of occurring together \cite{cabral2023gastrointestinal,zhang2023glp}
+because they affect similar organs, systems, or processes and, hence, co-occurring ASEs are more likely to exhibit similar structural patterns in an ASE-ASE network. 
+Thus, we hypothesize:
+
+\textit{H3.} 
+The frequency of GLP-1 RA ASEs can be assessed by analyzing their co-mention patterns in a social media-derived ASE-ASE network.
+
+
+%RQ1 focuses on the task of identifying ASEs as perceived by user postings on social media, whereas RQ2 centers on methodologies designed to estimate ASE frequencies.
+
+\section{Materials and Methods}
+\label{sec: material}
+%------------------------------------------------------------------
+\subsection{Data}
+\label{sect:data}
+%------------------------------------------------------------------
+In response to Challenges 1 and 2 (Section \ref{sec:LR}) concerning the analysis of a single dataset and biased domain-specific data, we collected five datasets covering biomedical knowledge and social media posts involving the 12 GLP-1 RAs that are included on our  \textit{Medication List}, which includes both brand names and generic drug names:
+    (1) dulaglutide [brand name: (2) Trulicity],
+    (3) exenatide [brand names: (4) Byetta; (5) Bydureon - extended-release],
+    (6) liraglutide [brand name: (7) Victoza], 
+    (8) lixisenatide [brand name: (9) Adlyxin], and
+   (10) semaglutide [brand names: (11) Ozempic - injections; (12) Rybelsus - tablets].
+All datasets generated and analyzed in this study are available on GitHub: [Link is not given due to the blind review process]. %https://github.com/bartala/GLP1.
+
+\textbf{Dataset 1: $\mathbb{X}$ (formerly Twitter) --}
+a popular social media platform where users can share short posts, facilitating quick discussions and updates across a diverse range of topics.
+Using the APIfy\footnote{https://console.apify.com} website, we collected the 1,000 most recent posts from 2017 to 2023 that mentioned each of the 12 items on our \textit{Medication List}.
+This produced a dataset that includes 11,185 posted texts, %(with one drug having only 700 posts available), 
+each with associated data on the posting user, posting time, and specific GLP-1 RA mentioned.
+
+\textbf{Dataset 2: Reddit --}
+a popular social media platform where users can post and discuss content in various topic-specific communities (subreddits).
+Using the Python Reddit API Wrapper (PRAW) package \cite{boe2023praw}, 
+we collected 489,529 posts and comments from 14 subreddits (Table \ref{tbl:reddit}) related to the 12 items on our \textit{Medication List}.
+The posts originated in 2022 and 2023.
+PRAW provides a convenient and accessible way to interact with the Reddit API.
+Each collected Reddit post includes the following metadata:
+    `Post ID',
+    `Post Author',
+    `Post Content',
+    `Post Date',
+    `Comment ID',
+    `Comment Author',
+    `Comment Content',
+    `Parent ID', and
+    `Parent Author'.
+
+\begin{center}
+[Table \ref{tbl:reddit} about here] 
+\end{center}
+
+\begin{comment}
+    
+\begin{table}[h]
+\caption{Subreddits that were used to collect social media posts involving GLP-1 RAs.}
+\label{tbl:reddit}
+\centering
+\begin{tabular}{ll}
+\toprule
+Subreddit               & \# Members$^*$ \\
+\midrule
+r/diabetes            & 109K \\
+r/diabetes\_t2            & 29.4K \\
+r/GLP1       & 1.3K \\
+r/liraglutide            & 11.7K \\
+r/loseit         & 3900K \\
+r/MaintenancePhase             & 25.6K \\
+r/medicine           & 453K \\
+r/Ozempic                  & 50.1K \\
+r/OzempicForWeightLoss     & 13.7K \\
+r/semaglutidecompounds           & 7.2K \\
+r/Semaglutide              & 45K \\
+r/TheMorningToastSnark              & 11.6K \\
+r/trulicity              & 1.1K \\
+r/type2diabetes           & 8.4K \\
+\bottomrule
+\end{tabular}
+$^*$Number of members (in thousands) of each subreddit as of October 2, 2023.
+\end{table}
+
+\end{comment}
+
+\textbf{Dataset 3: PubMed --}
+a biomedical research database.
+Using the National Center for Biotechnology Information (NCBI) PubMed E-utilities API (PubMed API) \cite{sayers2023eutilities} 
+and the Biopython Python library \cite{chapman2000biopython}, 
+we collected 13,491 articles indexed from 2017 to 2024 in PubMed that mentioned at least one item on our \textit{Medication List} in the title or in the abstract.
+
+\textbf{Dataset 4: SIDER -- }
+an online database of side effects \cite{kuhn2016sider}.
+%To systematically identify ASEs, we analyzed potential ASEs mentioned in social media posts and PubMed-indexed articles, comparing them with the ASEs listed in the SIDER database, version 4.1 [50].
+We utilized the \texttt{meddra\_all\_se.tsv.gz} dataset from the SIDER database version 4.1, which catalogs 5,868 documented ASEs for 1,430 commercially available drugs. 
+SIDER was selected since it compiles information from publicly accessible drug documents and package inserts, providing details on drug names, ASE frequencies, and classifications.
+
+\textbf{Dataset 5: Side Effects Reported by Manufacturers and by ChatGPT -- }
+we manually searched and collected from the Internet ASEs reported by drug manufacturers. Their reports primarily comprise structured data from clinical trials and post-marketing surveillance. 
+Table \ref{tbl:manu} shows the latest update dates by manufacturers for ASEs of GLP-1 RAs.
+We recorded all prominent ASEs reported in the manufacturers’ documents, focusing on data collected in clinical trials with human subjects, omitting side effects reported only in animal models. 
+To address potential gaps in the manually searched ASE data reported by manufacturers, we integrated them into Dataset 5 with commonly reported ASEs collected from ChatGPT (GPT-3.5) by using the interactive web interface. 
+For this collection, we used the following prompt: `Please provide a list of adverse side effects for the glucagon-like peptide 1 receptor agonists named $S$,' where $S$ corresponds to an item on our \textit{Medication List}. 
+ChatGPT’s responses may incorporate a broader range of information, potentially including insights from social media or medical literature that are not explicitly included in our manual search of manufacturers' reports. 
+This approach ensures that Dataset 5 aligns more closely with the timeframes of Datasets 1 and 2, covering information up to and including 2023, and Dataset 3, which covers information up to and including January 2024.
+
+\begin{center}
+[Table \ref{tbl:manu} about here] 
+\end{center}
+
+\begin{comment}
+    
+\begin{table}[h]
+\caption{Last update dates and side effect URLs for GLP-1 RAs}
+\label{tbl:manu}
+\centering
+\begin{tabular}{|l|l|l|p{6cm}|}
+\hline
+\textbf{Drug Name} & \textbf{Brand Name} & \textbf{Last Update} & \textbf{Side Effects URL} \\
+\hline
+Exenatide & Byetta & 2009 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/021773s9s11s18s22s25lbl.pdf} \\
+Lixisenatide & Adlyxin & 2016 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2016/208471orig1s000lbl.pdf} \\
+Dulaglutide & Trulicity & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/125469s007s008lbl.pdf} \\
+Exenatide & Bydureon & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/209210s000lbl.pdf} \\
+Semaglutide & Ozempic & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/209637lbl.pdf} \\
+Liraglutide & Victoza & 2019 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/022341s031lbl.pdf} \\
+Semaglutide & Rybelsus & 2019 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/213051s000lbl.pdf} \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{comment}
+
+
+
+
+%------------------------------------------------------------------
+\subsection{The SMASH Methodology for Early Identification of ASEs}
+\label{sect:methods}
+%------------------------------------------------------------------
+In Section \ref{sec:ASE}, we outline our method for the early identification of ASEs for GLP-1 RAs across Datasets 1 to 3, validating against Dataset 4 and Dataset 5.
+In Section \ref{sec:modelval}, we study the frequency of ASE mentions on social media.
+In Section \ref{sec:net}, we describe the method employed to construct an ASE-ASE network, which is based on co-mentions of ASEs within the same social media post (Datasets 1 and 2). 
+Then, we detail our approach to detecting ASEs that tend to co-occur by clustering ASE nodes in an ASE-ASE network based on the frequency of their mentions in the posts.
+In Section \ref{sec:pred_side_effect_freq}, we outline the methodology for assessing the frequency of ASEs by training a Graph Convolutional Network (GCN) classifier model \cite{team2024pyg}.
+Finally, in Section \ref{sec:sentiment}, we detail the use of sentiment analysis to discern user perceptions of each item on our \textit{Medication List}.
+
+Fig. \ref{fig:methods} summarizes the steps used to address our three research questions (Section \ref{sect:RQ}).
+
+\begin{center}
+[Fig. \ref{fig:methods} about here] 
+\end{center}
+
+\begin{comment}
+    
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.56, trim={0cm 0cm 0cm 0cm}, clip]{images/methods.pdf}
+    \caption{Overview of the methodology of this research.}
+    \label{fig:methods}
+\end{figure}
+
+\end{comment}
+%------------------------------------------------------------------
+\subsubsection{Identification of Adverse Side Effects of GLP-1 RAs} 
+\label{sec:ASE}
+%------------------------------------------------------------------
+In response to Challenge 3 (Section \ref{sec:LR}) concerning the identification of ASEs in posts, and addressing RQ1, we identified ASEs of FDA-approved GLP-1 RAs by analyzing the texts in Datasets 1 to 3 and the biomedical entities (including ASEs) extracted by the ScispaCy pre-trained NER model \cite{neumann2019scispacy}.
+More specifically, we employed the \texttt{en\_ner\_bc5cdr\_md} NER model to identify biological entities, following the strategy of using ScispaCy to extract pharmaceutical-related phrases from textual electronic medical records, including dosage, diseases, and symptoms \cite{tarcar2019healthcare}.
+To ascertain whether these identified biological entities are potential ASEs of GLP-1 RAs, we matched them against the ASEs catalogued in SIDER \cite{kuhn2016sider} 
+(Dataset 4), after normalizing and converting to lowercase both the identified ASEs and those in SIDER, as well as employing NLP stemming to reduce words to their root forms \cite{jivani2011comparative}.
+Each identified biomedical entity was considered a potential ASE if it existed in SIDER \cite{kuhn2016sider}.
+To the resulting compilation of ASEs, we added ASEs collected in Dataset 5. 
+Then, we manually grouped similar ASEs, for example, combining `headache' and `migraines', and standardized ASEs into their noun forms. 
+Consolidating and analyzing these diverse sources based on dynamic and up-to-date social media data facilitated early comprehensive identification of potential ASEs that might have been overlooked during regulatory approval processes.
+
+In response to challenges 4 and 5 (Section \ref{sec:LR}), concerning the reliability of signals and the low signal-to-noise ratio in social media, we analyze the frequency of ASEs.
+
+%------------------------------------------------------------------
+\subsubsection{Analysis of Adverse Side Effects Mention Frequency}
+\label{sec:modelval}
+%------------------------------------------------------------------
+Addressing RQ2, which focuses on identifying novel ASEs based on social media data, we analyze the frequency of ASE mentions on social media for each GLP-1 RA on our \textit{Medication List}.
+Then, we examined all ASEs identified in the social media data and classified them into one of two group:
+\begin{itemize}
+    \item 
+    Established ASEs: ASEs reported by manufacturers and ChatGPT.
+
+    \item 
+    Potential ASEs: ASEs identified by our modeling approach but not reported by manufacturers and ChatGPT. 
+\end{itemize}
+
+%If our approach is able to identify established ASEs, we can confidently further explore potential ASEs that our approach discovers and hypothesize their novelty.
+%Therefore, we evaluated our approach's performance in identifying established ASEs by calculating the Sensitivity$_{f\%}$ score for different ASE mention frequencies ($f$).
+
+%\textbf{Recall (Sensitivity)}, or true positive rate (TPR), signifies the approach's ability to correctly identify novel ASEs among established ASEs (Equation \ref{eq1}).
+
+%\begin{equation}
+%\label{eq1}
+%Sensitivity_{f\%}=|I_{f_\%} \cap E |/|E|
+%\end{equation}
+
+%$I_{f\%}$ - The set of identified established and potential ASEs in social media data located in the top $f_\%$ of a ranking, based on the mentioned frequency of ASEs.
+
+%$E$ - The set of established ASEs.
+
+%A higher Sensitivity$_{f\%}$ $\in[0,1]$ indicates greater success identifying established ASEs. 
+%A Sensitivity$_{f\%}$ of 1 indicates that all established ASEs were captured on social media, whereas a Sensitivity$_{f\%}$ of 0 indicates that no established ASEs were captured.
+
+\textit{H2} posits that frequent mentions of ASEs on social media correlate with their  pharmacovigilance significance. 
+In other words, the higher the frequency of ASE mentions on social media, the greater the likelihood of identifying an established ASE. 
+To test \textit{H2}, we assessed our method’s effectiveness by computing the Overlap$_{f\%}$ score across various ASE mention frequencies.
+The Overlap score signifies our ability to capture ASE instances among identified ASEs (Equation \ref{eq2}).
+
+\begin{equation}
+\label{eq2}
+Overlap_{f_\%}=|I_{f_\%} \cap E |/|I_{f_\%}|
+\end{equation}
+
+$I_{f\%}$ - the set of identified established and potential ASEs in social media data located in the top $f_\%$ of a ranking, based on the mentioned frequency of ASEs.
+
+$E$ - the set of established ASEs.
+
+A higher Overlap$_{f_\%}$ score $\in [0,1]$, indicates greater success identifying established ASEs among identified ASEs. 
+Overlap = 1 means all identified ASEs are established ASEs, while Overlap = 0 indicates non of the identified ASEs are established ASEs.
+
+If our approach is able to accurately identify established ASEs (higher Overlap score), we can confidently further explore potential ASEs that our approach discovers and hypothesize their novelty.
+
+%------------------------------------------------------------------
+%\subsubsection{Analysis of Adverse Side Effects Mention Frequency}
+%\label{sec:mt}
+%------------------------------------------------------------------
+\textbf{Additionally, we analyzed ASE frequency trends over time}
+by tracking mentions of ASEs on social media along intervals of 14 days.
+To measure ASE frequency over time, we defined two frequency measures, considering only ASEs with more than 10 mentions per interval:
+
+\begin{itemize}
+\item
+    Pre-Mention Average Frequency (Pre-MAF): average mentions before a selected point in time, $t_0$. 
+\item 
+    Post-Mention Average Frequency (Post-MAF): average mentions after a selected point in time, $t_0$.
+\end{itemize}
+
+
+We define a positive slope in mention frequency as Pre-MAF $<$ Post-MAF, a negative slope as Pre-MAF $>$ Post-MAF, and no slope otherwise.
+
+Furthermore, we queried Google Trends \cite{woloszko2020tracking} 
+for each specific GLP-1 RA on our \textit{Medication List}.
+This web service offers insights into how frequently a particular term is searched relative to the total search volume on Google.
+%While the exact search volumes are not disclosed, it is a valuable tool for understanding the relative interest and dynamics of search queries over time, allowing users to explore trends by adjusting parameters. 
+The Google Trends values are relative search interest scores, as opposed to absolute search volumes.
+The highest score, 100, represents the peak popularity of a particular term during the specified period, and the scores for other terms are relative to this peak.
+
+%------------------------------------------------------------------
+\subsubsection{Network Analysis of Adverse Side Effects}
+\label{sec:net}
+%------------------------------------------------------------------
+Using the ASEs identified in the social media posts of Datasets 1 and 2 (Section \ref{sec:ASE}), we built an ASE-ASE network, $G=(V,E,W)$. 
+In $G$, nodes ($V$) are identified ASEs. 
+Two nodes mentioned in the same post are connected by an edge ($E$). 
+The weights of the edges ($W$) represent the frequency of two ASEs being mentioned together in posts.
+
+%------------------------------------------------------------------
+%\subsubsection{Analysis of Adverse Side Effects}
+%\label{sec:cluster_side_effect}
+%------------------------------------------------------------------
+Identifying the co-occurrence patterns of ASEs, which is crucial in pharmacovigilance drug safety analysis \cite{galeano2020predicting}, 
+was accomplished in two steps:
+%(1) investigating ASE-ASE clustering in $G$ using a community detection algorithm, and 
+%(2) classifying ASEs by the frequency with which each was mentioned to improve risk assessment, inform treatment decisions, and contribute to overall pharmacovigilance and public health management. 
+
+%------------------------------------------------------------------
+{Step 1: Clustering of ASEs by network community detection.}
+%------------------------------------------------------------------
+To identify sets of interconnected ASEs, we applied the \texttt{cluster\_louvain} node-clustering algorithm from the \texttt{igraph} R library to the ASE-ASE network $G$. 
+This algorithm employs a multi-level modularity optimization function, leveraging the modularity measure and adopting a hierarchical methodology.
+Clustering nodes into community groups enabled the identification of ASEs that frequently co-occur beyond a direct 1-hop edge in $G$.
+
+%------------------------------------------------------------------
+{Step 2: Classification of ASEs by mention frequency.}
+%------------------------------------------------------------------
+We classified ASE nodes by the frequency with which each was mentioned in the social media posts of Datasets 1 and 2. 
+Specifically, each ASE node was classified into one of the following groups (as defined in \cite{galeano2020predicting}): 
+Very Rare, 
+Rare, 
+Infrequent, 
+Frequent, and 
+Very Frequent. 
+This labeling approach was used to estimate the ASE frequency, as explained next.
+
+%------------------------------------------------------------------
+\subsubsection{Estimation of the Frequency of Adverse Side Effects}
+\label{sec:pred_side_effect_freq}
+%------------------------------------------------------------------
+Accurately estimating ASE frequencies is crucial for patient care in clinical practice and is of great significance for pharmaceutical companies, as it can mitigate the risk of market withdrawal or costly reassessments through new clinical trials.
+
+Addressing RQ3, we used the ASE-ASE network constructed in Section \ref{sec:net} and leveraged the five frequency category labels assigned to each ASE node, as detailed in Step 2 of Section \ref{sec:net}, to assess the ASE frequencies.
+Class 1 includes the categories `Very Frequent' and `Frequent';
+Class 0 includes the categories `Infrequent', `Rare', and `Very Rare'. 
+As an additional step, we computed the degree centrality of each node in $G$ as a node feature in our model, employing the NetworkX Python package \cite{hagberg2020networkx}. 
+
+Utilizing these node labels and features, we trained a Graph Convolutional Network (GCN) model using the PyG Python package \cite{team2024pyg} 
+to predict the classification of nodes in $G$ into either class.
+For training, we implemented a 10-fold cross-validation strategy, dividing the nodes of the graph into 10 subsets. 
+During each fold, the model was trained on the training subset, and the F1-score and ROC-AUC were computed on the corresponding test subset.
+
+
+%------------------------------------------------------------------
+\subsubsection{Sentiment Analysis of Social Media Posts on GLP-1 RAs}
+\label{sec:sentiment}
+%------------------------------------------------------------------
+Sentiment analysis, a subset of NLP, helps businesses to gauge customer opinions. 
+%For example, a business owner can comprehend the sentiments expressed by customers on a social media platform using sentiment analysis of customers' posts.
+Since patients share their experiences with medications on social media \cite{grasser2018aspect,korkontzelos2016analysis}, 
+sentiment analysis can help to elucidate public opinions and concerns about GLP-1 RAs.
+This information is valuable for pharmaceutical companies, healthcare professionals, and policy makers. 
+Moreover, sentiment monitoring can be a component of pharmacovigilance efforts \cite{sarker2015utilizing,gosal2015opinion}. 
+Early identification of negative sentiments related to ASEs can contribute to prompt activity to ensure patient safety.
+
+We used the TextBlob Python library \cite{loria2018textblob} to perform sentiment analysis.
+Since TextBlob was pre-trained on a large dataset, no extensive training on domain-specific data was needed.
+TextBlob uses a lexicon-based approach, relying on a predefined list of words with associated polarity scores. 
+This approach is effective in analyzing social media text \cite{verma2018sentiment}, 
+where language can be informal and sentiment can be expressed using a variety of words and phrases.
+
+Because social media posts from $\mathbb{X}$ were returned by searching for items on our \textit{Medication List}, we could associate the post's sentiment and the item.
+Next, we used ANOVA tests \cite{cardinal2013anova} 
+and Tukey's Honestly Significant Difference (HSD) test \cite{abdi2010tukey} 
+to identify significant differences in sentiments by comparing the negative and positive sentiment distributions of each GLP-1 RA.
+
+%Overall, applying our SMASH methodology in the GLP-1 RA context demonstrated that consolidating diverse data sources, particularly monitoring social media data, can facilitate early identification of potential ASEs.
+%Contrary to previous studies which primarily focused on identifying novel ASEs, our contribution also lies in developing a GCN model to estimate (via classification) the validity of potential ASEs. This highlights the novelty of SMASH as an early warning tool for ASE detection. 
+
+%------------------------------------------------------------------
+\section{Results}
+\label{sec:res}
+%------------------------------------------------------------------
+In Section \ref{subsec:res_ASE}, we evaluate SMASH's performance in early identification of established and novel ASEs.
+In Section \ref{sec:model_eval}, we analyze the frequency of ASE mentions across social media (Datasets 1 and 2), academic literature (Dataset 3), and manufacturer and ChatGPT reports (Dataset 5), exploring temporal trends and correlations with external events.
+In Section \ref{subsec:ASE_net}, we uncover clusters of interconnected ASEs and their mention frequencies. 
+In Section \ref{subsec:GCN}, we estimate the frequencies of ASEs, and in Section \ref{subsec:sentiment}, we gauge public perceptions of GLP-1 RAs by applying sentiment analysis to social media posts.
+
+%------------------------------------------------------------------
+\subsection{Identification of Adverse Side Effects of GLP-1 RAs} 
+\label{subsec:res_ASE}
+%------------------------------------------------------------------
+Using the methods described in Section \ref{sec:ASE}, we identified 134 ASEs of GLP-1 RAs (Appendix \ref{app1:All_ASEs}).
+Fig. \ref{fig:venn} presents a Venn diagram showing the overlaps and distinctions among these 134 ASEs.
+The bar charts in Fig. \ref{fig:venn} indicate ASE mention frequency on social media (Datasets 1, 2) and in academic papers (Dataset 3), as well as ASE percentage frequency as reported by drug manufacturers (Dataset 5).
+There are seven subgroups in the Venn diagram (intersection, union, and disjoint):
+Group 1 lists 35 ASEs found in academic papers, social media, and manufacturers' reports or reported by ChatGPT.
+Group 2 contains 41 ASEs reported in academic papers and mentioned on social media.
+Group 3 lists 16 ASEs reported exclusively in academic papers.
+Group 4 lists 14 ASEs reported by ChatGPT and in manufacturers' reports and 
+Group 5 lists 21 ASEs exclusively mentioned on social media.
+Group 6 lists 6 ASEs mentioned on social media, by ChatGPT, and in manufacturers' reports. 
+Group 7 contains the similar ASEs Blurred Vision, Non-Proliferative Retinopathy, and Diabetic Retinopathy which were mentioned in academic papers, by ChatGPT, and in manufacturers’ reports: these ASEs were grouped into a single ASE with a sum frequency of 15.
+% Datasource: All ASEs sheet
+% https://www.canva.com/design/DAF6iOMOMhA/ECeItquwnCLoT6fd2H2oqw/edit?referrer=venn-diagrams-landing-page
+% https://docs.google.com/spreadsheets/d/1DwhepSK0oRQYe7KB3IT9rFflgkVoyJbxt5kphYfWqJM/edit?usp=sharing
+
+\begin{center}
+    [Fig. \ref{fig:venn} about here]
+\end{center}
+
+The 21 ASEs identified in Group 5 are of great interest, as they might have been overlooked during the FDA regulatory approval process, thereby supporting hypothesis \textit{H1}.
+Moreover, $53\%$ of established ASEs were identified on social media.
+These findings align closely with those of Zitnik et al. \cite{zitnik2018modeling}, who utilized the computational approach of Decagon to predict ASEs, with only 50\% of the predictions receiving support.
+The early identification of potential ASEs through social media analytics warrants further investigation.
+
+\begin{comment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7, trim={0cm 0cm 0.4cm 0cm}, clip]{images/venn5.pdf}
+    \caption{Venn diagram offering a visual representation of and distinction among ASEs.
+    }
+    \label{fig:venn}
+\end{figure}
+\end{comment}
+%-----------------------------------------------------------------------
+\subsection{Analysis of Adverse Side Effects Mention Frequency}
+\label{sec:model_eval}
+%-----------------------------------------------------------------------
+Following Section \ref{sec:modelval}, established ASEs are listed in Groups 1, 4, 6, and 7 in Fig. \ref{fig:venn}, and potential ASEs are listed in Groups 2 and 5.
+
+Fig. \ref{fig:overlap} depicts the success of our model's identification of established ASEs as a function of $I_{f\%}$, where $f_\%$ ranges between 10\% and 100\% with increments of 10\%.
+%More specifically, it shows that the Overlap$_{f\%}$ score decreases with the increase of ${f\%}$.
+%For example, when ${f\%}=100\%$, indicating inclusion of all ASEs identified on social media, Sensitivity$_{f\%} = 53\%$ shows that our modeling approach successfully identified $53\%$ of established ASEs, thereby supporting hypothesis \textit{H1}. 
+%These findings align closely with those of Zitnik et al. \cite{zitnik2018modeling}, who utilized the computational approach of Decagon to predict ASEs, with only 50\% of the predictions receiving support.
+
+We find that as ${f\%}$ increases, Overlap$_{f\%}$ decreases.
+This indicates that ASEs mentioned more frequently on social media ($I_{f\%}$ where ${f\%}$ is smaller) are more likely to be established ASEs, supporting hypothesis \textit{H2}.
+
+
+
+\begin{center}
+    [Fig. \ref{fig:overlap} about here]
+\end{center}
+
+\begin{comment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4, trim={2.5cm 2.5cm 2.3cm 2.3cm}, clip]{images/overlap.pdf}
+    \caption{Overlap score as a function of $I_{f\%}$.
+    }
+    \label{fig:overlap}
+\end{figure}
+\end{comment}
+%-------
+
+
+Additionally, we fitted a logarithmic curve to model the observed Overlap$_{f\%}$ pattern: $Overlap_{f\%} = -0.29 \ln(x) + 0.9$, yielding an impressive $R^2$ value of 0.99.
+This curve enables accurate estimation of Overlap$_{f\%}$ scores based on the value of ${f\%}$, allowing us to more confidently (depending on the Overlap score) recommend novel ASEs for further investigation.
+
+%------------------------------------------------------------------------------
+%\subsubsection{Analysis of ASE Mention Frequency}
+%------------------------------------------------------------------------------
+Next, we analyze ASE mention frequency in the social media data collected for this study. Ozempic, the most frequently prescribed GLP-1 RA, exhibits the largest group of associated ASEs identified in the collected social media data (Fig. \ref{fig:drg_ase_35}).
+
+\begin{center}
+    [Fig. \ref{fig:drg_ase_35} about here]
+\end{center}
+
+\begin{comment}
+\begin{figure}
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[scale=0.5, trim={0cm 0cm 0cm 0cm}, clip]{images/1.pdf}
+        %\caption{Part B}
+        \label{fig:drg_ase_35a}
+    \end{subfigure}
+    \stepcounter{figure} % Manually increment the figure counter
+    \caption{ASE mention frequency ($>1$) on $\mathbb{X}$ and Reddit for each GLP-1 receptor agonist.}
+    \label{fig:drg_ase_35}
+\end{figure}
+\end{comment}
+
+Tracking mentions of ASEs on social media along intervals of 14 days (Fig. \ref{fig:ASE_over_time}), we found that the ASEs mentioned most frequently over time are constipation, nausea, pain, and vomiting. 
+We observed a sharp spike in these ASEs starting on September 24, 2023.
+This date was selected as $t_0$ to measure ASE frequency over time.
+We observe an overall positive slope (Pre-MAF $<$ Post-MAF) for anxiety, constipation, nausea, pain, and vomiting, an overall negative slope for fatigue, and no slope for depression (Table \ref{tbl:freq_before_after}).
+
+\begin{center}
+    [Fig. \ref{fig:ASE_over_time} and Table \ref{tbl:freq_before_after} about here]
+\end{center}
+
+\begin{comment}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.9, trim={7cm 3cm 10cm 7cm}, clip]{images/ASE_over_time.pdf}
+    \caption{ASEs mentions $> 10$ in each of the 14-day intervals on $\mathbb{X}$ and Reddit. 
+    %The X-axis shows 14-day intervals. 
+    %The Y-axis shows the log of the sum of ASE frequencies, a measure of how often each ASE was mentioned by social media users.
+    }
+    \label{fig:ASE_over_time}
+\end{figure} 
+\end{comment}
+
+%Inflammation shows no slope in the first six time-steps, and  then no signature due to having fewer than 10 mentions (Fig. \ref{fig:ASE_over_time}).
+%Whereas inflammation is highly mentioned by academic papers and manufacturers’ reports (Fig. \ref{fig:venn}), it is less mentioned on social media over time (Figs. \ref{fig:drg_ase_35}, \ref{fig:ASE_over_time}).
+%Migraine was mentioned fewer than 10 times per interval before the spike and shows a constant negative slope afterward (Fig. \ref{fig:ASE_over_time}).
+
+
+\begin{comment}
+\begin{table}[h]
+    \centering
+    \caption{Frequency of adverse side effect (ASE) mentions before and after the observed spike in mentions.}
+    \begin{tabular}{llll}
+    \toprule
+                Adverse Side Effect   & Pre-MAF & Post-MAF & Slope\\
+                \midrule
+                Anxiety & 18.0& 20.0 & +\\
+                Constipation& 29.0& 35.0 & +\\
+                Depression& 15.5& 15.5 & 0 \\
+                Fatigue& 17.6& 14.6 & -\\
+                %Inflammation& 12.0& NA\\
+                Nausea& 39.1& 57.8 & +\\
+                Pain (abdominal pain, back pain) & 20.5& 36.0 & +\\
+                Vomiting& 20.5& 27.0 & +\\
+                %Migraine& NA& 12.0\\
+    \bottomrule
+    \end{tabular}
+    NA - Fewer than 10 mentions were observed either before or after the spike (September 24, 2023), as indicated in Fig. \ref{fig:ASE_over_time}.
+    \label{tbl:freq_before_after}
+\end{table}
+\end{comment}
+  
+
+To better understand the spike, we queried Google Trends for the entries on our \textit{Medication List} (Fig. \ref{fig:Gtrends}), with geographic location, category, and time range specified as `Worldwide', `Web Searches', and `Between 9/21/23 and 9/27/23' (i.e., 3 days before and after the 9/24/23 spike in Fig. \ref{fig:ASE_over_time}); we also filtered for `health'-related searches. 
+Fig. \ref{fig:Gtrends} shows a spike on September 25, 2023, for the search terms `Dulaglutide', `Ozempic', `Liraglutide', `Trulicity', and `Rybelsus'.
+The black dashed line in Fig. \ref{fig:Gtrends} represents a spike in searches for `Dulaglutide', `Ozempic', `Liraglutide', `Trulicity', and `Rybelsus' on September 25, 2023.
+The Google Trends delay of one day in the spike observed on September 24 may be attributed to the tendency of social media discussions to peak before gaining widespread attention through Google searches.
+This temporal offset could arise from social media users acting as early adopters of a particular GLP-1 RA or possessing particular interest in a specific GLP-1 RA, thereby influencing the timing difference between the two spikes.
+
+\begin{center}
+    [Fig. \ref{fig:Gtrends} about here]
+\end{center}
+
+\begin{comment}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5, trim={2cm 2.1cm 2cm 4cm}, clip]{images/GoogleTrends.pdf}
+    \caption{Google Trends queries for GLP-1 RAs on our \textit{Medication List}.
+        } 
+    \label{fig:Gtrends}
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[black, thick, dashed] (1.95, 3.0) -- (1.95, 8.6); % Adjust the coordinates as needed
+    \end{tikzpicture}
+\end{figure} 
+
+\end{comment}
+
+A further Google search for the analyzed time range explains the spike by revealing that Oprah Winfrey's, show\footnote{https://www.oprahdaily.com/life/health/a44964375/oprah-weight-loss-obesity/} on September 20, 2023, addressed the growing trend of using weight-loss drugs. 
+
+
+%---------------------------------------------------
+% construct an adverse side effect network section 3.2.2
+\subsection{Network Analysis of Adverse Side Effects}
+\label{subsec:ASE_net}
+%------------------------------------------------------------------
+Following Section \ref{sec:net}, based on the unprocessed social media data (Datasets 1 and 2), we constructed an ASE-ASE weighted and non-directed network $G=(V,E,W)$.
+To emphasize that our method can identify ASEs in raw social media discussions (RQ1), unlike in Section \ref{subsec:res_ASE}, here we neither combined similar ASEs nor standardized ASEs into noun forms.
+
+We identified 381 potential ASEs with 1,440 ASE-ASE interactions co-mentioned in the same post. 
+To reduce noise and focus on ASEs only, we manually removed 52 falsely identified ASEs, ASE-ASE interactions with fewer than 3 co-mentions, and ASE nodes with no co-mentions in the data (having degree centrality 0). 
+We also used the \texttt{components} function within the \texttt{igraph} R library \cite{csardi2013package} to detect graph components.
+The algorithm detected three components of sizes 2, 2, and the main component of 78 nodes.
+We set $G$ as the main component graph with 78 ASE nodes and 253 weighted edges.
+In Fig. \ref{fig:graph}, nodes are ASEs and edges represent ASE-ASE co-mentioned relationships identified in $\mathbb{X}$ and Reddit posts.  
+
+\begin{center}
+    [Fig. \ref{fig:graph} about here]
+\end{center}
+
+To identify the co-occurrence patterns of ASEs, we followed two steps.
+
+\textbf{Step 1: Clustering of ASE nodes by network community detection.}
+To identify sets of interconnected ASEs, we applied clustering analysis to $G$ using the \texttt{cluster\_louvain} node-clustering algorithm \cite{held2016dynamic}.
+It discovered four clusters (Fig. \ref{fig:graph}) with 34, 23, 19, and 2 ASE nodes, respectively.
+The node colors in Fig. \ref{fig:graph} correspond to membership in each of the four clusters (see Appendix \ref{app2:network_cluster}); node size is proportional to its degree, and edge width is proportional to its weight, representing the co-mention frequency.
+
+
+\begin{comment}
+
+ \begin{figure}
+    \centering
+    \includegraphics[scale=0.8, trim={8cm 3cm 7cm 3.5cm}, clip]{images/graph.pdf}
+    \caption{The ASE-ASE network $G$ based on social media posts.
+    }
+    \label{fig:graph}
+\end{figure}
+
+\end{comment}
+
+
+%------------------------------------------------------------------
+\textbf{Step 2: Classification of ASE nodes by mention frequency.}
+Given the ASE-ASE network $G$, we calculated the mention frequency $M_f$ of each ASE on $\mathbb{X}$ and Reddit (Fig. \ref{fig:ASE_mention}).
+Next, we normalized $M_f$ by dividing it by the maximum mention frequency ($\hat{M_f} = M_f/Max\{M_f\}$) in our dataset. 
+Following \cite{galeano2020predicting}, we then classified every ASE node by its normalized mention frequency ($\hat{M_f}$) into one of five frequency categories: Very Rare, Rare, Infrequent, Frequent, or Very Frequent.
+Table \ref{tbl:freq_1} shows the frequency range of each category and the number of ASEs within it.
+
+
+\begin{center}
+    [Fig. \ref{fig:ASE_mention} and Table \ref{tbl:freq_1}  about here]
+\end{center}
+
+\begin{comment}
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[scale=0.8, trim={0cm 0cm 0cm 0.8cm}, clip]{images/side_effect_distribution.pdf}
+    \caption{Long-tailed distribution of ASEs as aggregated groups by frequency of mentions on Reddit and $\mathbb{X}$.
+             }
+    \label{fig:ASE_mention}
+\end{sidewaysfigure}
+
+\end{comment}
+
+
+\begin{comment}
+\begin{table}[h]
+    \centering
+    \caption{Categories of adverse side effects (ASEs) by normalized mention frequency ($\hat{M_f}$) on social media.}
+    \label{tbl:freq_1}
+    \begin{tabular}{llll}
+    \toprule
+    Category   &  Range & Number of ASEs\\
+    \midrule
+      Very Rare   &  $\hat{M_f} < 0.0001$ & 0 \\
+      Rare   & $  0.0001 \leq \hat{M_f} < 0.001$  & 0 \\
+      Infrequent   & $ 0.001 \leq \hat{M_f} < 0.01$ & 42 \\
+      Frequent   & $0.01 \leq \hat{M_f} < 0.1$ & 24 \\
+      Very Frequent   & $\hat{M_f} \geq  0.1$ & 12 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\end{comment}
+
+
+Next, following the identification of potential ASEs on social media, we trained a graph-based machine learning model to estimate the ASE frequency level.
+
+%------------------------------------------------------------------
+\subsection{ASE Frequency Estimation}
+\label{subsec:GCN}
+%------------------------------------------------------------------
+
+As demonstrated in Section \ref{sec:model_eval}, the more frequently a potential ASE is mentioned on social media, the more likely it is a novel ASE. 
+Given an ASE-ASE network and a set of ASE frequency labels, our goal is to predict the frequency level of a potential and unlabeled ASE. 
+While conventional risk-assessment methods typically rely on clinical trials, we estimate the frequency of ASEs associated with GLP-1 RAs using social media data.
+
+Utilizing the category labels outlined in Table \ref{tbl:freq_1}, and in accordance with Section \ref{sec:pred_side_effect_freq}, we trained a Graph Convolutional Network (GCN) model on the ASE-ASE graph $G$ to categorize each node into Class 0 (`Infrequent', `Rare', and `Very Rare') or Class 1 (`Frequent' and `Very Frequent').
+The GCN architecture comprised an input layer with a size of 1 dimensional tensor, representing node degrees, and edge indices, followed by a first graph convolutional layer with 16 output channels, employing a ReLU activation function, and concluded with a second graph convolutional layer producing 2 output channels for binary classification. 
+The learning rate for the Adam optimizer was set to 0.01. 
+Within each fold of the 10-fold cross-validation process, the model underwent training for 50 epochs using 90\% of the data for training and the remaining 10\% for testing. 
+Subsequently, for each fold, the model's performance was evaluated on the test data, which involved computing both the ROC-AUC score and the F1-score.
+Across all 10 folds, the average F1-score was 0.79, and the average ROC-AUC score was 0.82. 
+These findings demonstrate our model's ability to assess ASE frequency via classification, thereby supporting \textit{H3}.
+
+%---------------------------------------------------------
+\subsection{Sentiment Analysis Involving GLP-1 RAs}
+\label{subsec:sentiment}
+%---------------------------------------------------------
+\begin{comment}
+{
+    'Trulicity':'Dulaglutide',
+    'Byetta':'Exenatide',
+    'Bydureon':'Exenatide',
+    'Victoza':'Liraglutide',
+     Adlyxin':'Lixisenatide',
+    'Ozempic':'Semaglutide',
+    'Rybelsus: 'Semaglutide''
+}
+\end{comment}
+
+Following Section \ref{sec:sentiment}, we computed the sentiment of $\mathbb{X}$ posts and used two one-way ANOVA tests to compare the negative and positive sentiment distribution for each item on our \textit{Medication List}. 
+We found no significant differences in the distributions of negative sentiments. 
+However, we did find significant differences ($F = 2.98, p-value= 0.01$) in the distribution of positive sentiments among them.
+The violin plots of sentiment analysis groups in Fig. \ref{fig:sentiment} visualize positive (pos) and negative (neg) polarity for $\mathbb{X}$ posts involving GLP-1 RAs. 
+
+\begin{center}
+    [Fig. \ref{fig:sentiment} about here]
+\end{center}
+
+\begin{comment}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.74, trim={0cm 0cm 0cm 0.66cm}, clip]{images/tukey_hsd_plot_Twitter.pdf}
+    \caption{Sentiment analysis violin plots of positive and negative polarity groups for $\mathbb{X}$ posts with combined generic and brand names of GLP-1 RAs.
+    }
+    \label{fig:sentiment}
+\end{figure}
+\end{comment}
+
+To refine our understanding of the polarity differences in Fig. \ref{fig:sentiment}, we performed Tukey's HSD post-hoc test for each pair of GLP-1 RAs with positive sentiment polarity. 
+The p-value results between each pair with positive sentiment are visualized in Fig. \ref{fig:heatmap_pos} using a heatmap.
+We observe that semaglutide has significantly higher positive sentiment than lixisenatide and dulaglutide.
+
+\begin{center}
+    [Fig. \ref{fig:heatmap_pos} about here]
+\end{center}
+
+
+\begin{comment}
+ \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.56, trim={0.6cm 0.6cm 0cm 0cm}, clip]{images/tukey_hearmap_positive_x.pdf}
+    \caption{Heatmap visualizing the p-value results of Tukey’s HSD post-hoc test.}
+    \label{fig:heatmap_pos}
+\end{figure}
+\end{comment}
+
+%---------------------------------------------
+\section{Discussion and Conclusions}
+\label{sec:discussion}
+%---------------------------------------------
+This study addresses the pressing challenge of early warning about ASEs associated with newly released drugs, which present significant risks to public health and impose substantial costs on healthcare systems. 
+To help pharmaceutical companies, healthcare regulators, and professionals with this vital task, we introduce SMASH, a digital computational methodology designed to identify unreported ASEs early on by mining social media data, as a complement to existing pharmacovigilance sources. 
+
+% Future Work
+Although promising, this study has several limitations that can be addressed in the future.
+First, examining the relationships among language patterns used to refer to each drug was not our focus.
+Analyzing these relationships can help reveal additional user-reported ASEs.
+Moreover, we did not explore the association of drug popularity and awareness in popular culture with the sentiments expressed about the drug on social media.
+Finally, our dataset did not contain private discussions on social media where users might express sentiments different from those voiced in public fora.
+
+Despite these limitations, our study makes several meaningful contributions.
+
+%---------------------------------------------
+\subsection{Contributions to the IS Domain}
+%---------------------------------------------
+The methodological and practical implications of SMASH, including parameter settings and architecture, offer valuable insights for IS research and practice.
+In our approach to identifying ASEs in textual data, we deploy an NER model to analyze posts from $\mathbb{X}$ and Reddit discussing GLP-1 RAs, as well as academic papers, ChatGPT, and manufacturers' reports.
+Many ASEs are included in all of our datasets, yet 16 out of 134 (12\%) are reported exclusively by academic studies, 14 (10\%) solely by manufacturers, and 21 (15\%) only on social media, thereby supporting hypothesis \textit{H1}.
+
+Social media captures a broader spectrum of user perspectives than other data sources, including views that may not be apparent in clinical research.
+When analyzing social media data, SMASH identified 53\% of established ASEs.
+Notably, the established ASEs declared by manufacturers but not identified on social media have Very Rare frequency, as observed in Groups 4 and 7 (Fig. \ref{fig:venn}), and thus are less likely to be reported.
+
+In contrast with conventional approaches that merely verify whether identified ASEs are reported in biomedical datasets, SMASH employs a GCN model to estimate ASE frequencies and assess their validity. 
+Our results indicate a significant correlation ($R^2=0.99$ in Fig. \ref{fig:overlap}) between established ASEs and the ASEs mentioned frequently on social media, supporting hypothesis \textit{H2}.
+Consequently, SMASH is able to distinguish which ASEs identified in social media are more likely to be novel.
+
+While conventional risk-assessment methods often rely on ASE frequencies documented in clinical trials, we estimate the ASE frequency of GLP-1 RAs using social media data through the GCN model that powers SMASH.
+The model's ability to classify nodes as frequent or not (F1-score 0.79; AUC 0.82) underscores the significance of considering interconnections among ASEs, validating hypothesis \textit{H3}. 
+
+Overall, applying our SMASH methodology in the GLP-1 RA context offers a proof of concept that consolidating diverse data sources, particularly monitoring social media data, can facilitate early identification of potential ASEs. 
+Moreover, contrary to previous studies, which primarily focused on identifying novel ASEs, our contribution also lies in developing a GCN model to estimate (via classification) the validity of potential ASEs as novel ASEs.
+%---------------------------------------------
+\subsection{Contributions for Stakeholders}
+%---------------------------------------------
+
+%Obesity, a global concern impacting over 650 million individuals, poses significant health risks. 
+GLP-1 RAs have emerged as effective interventions for weight reduction and blood sugar control. 
+However, because the approvals of some GLP-1 RAs are recent, comprehensive ASE profiles may be lacking in traditional studies. 
+Clinical trials often struggle to detect rare or latent ASEs, creating a gap in ASE understanding. 
+This study bridges this gap by employing an interdisciplinary approach, leveraging SMASH to enhance drug safety assessment and public health outcomes.
+
+SMASH identifies many of the established ASEs, showcasing the potential of digital platforms for pharmacovigilance. 
+Beyond identification, SMASH's ability to assess the validity of potential ASEs by leveraging advanced computational techniques for estimating their frequency contributes significantly to understanding drug safety and informing regulatory decisions.
+Moreover, SMASH uncovers groups of ASEs through node-clustering analysis of ASE-ASE networks, shedding light on potential drug mechanisms and differences across individual patients.
+
+\textbf{Actionable insights for stakeholders.}
+SMASH provides actionable insights, empowering stakeholders to proactively address drug safety concerns. 
+This enables decision-makers to customize responses to emerging issues, thereby benefiting healthcare research and practice.
+Pharmaceutical companies that receive early ASE warnings can take proactive measures and, for instance, can swiftly adjust labeling, update prescribing information, or even halt production.
+
+\textbf{Implementation by stakeholders.} 
+Pharmaceutical companies can integrate the SMASH approach into their pharmacovigilance processes to monitor social media and other data sources for early detection of potential ASEs.
+The FDA and other regulatory agencies can use the SMASH approach as a decision support system and as a 
+complementary tool to traditional surveillance methods, enhancing their ability to monitor drug safety and make informed decisions.
+Finally, healthcare organizations can leverage SMASH to stay informed about emerging ASEs and provide better patient care by adjusting treatment plans accordingly.
+
+
+%Obesity has become a major health concern globally, affecting over 650 million individuals around the world \cite{haththotuwa2020worldwide}. 
+%GLP-1 RAs used to treat obesity and T2D have demonstrated efficacy in reducing excess weight, improving comorbidities, and lowering blood sugar levels \cite{trujillo2021glp}. 
+%Because some GLP-1 RAs were approved quite recently, their complete ASE profiles might remain under-reported or be overlooked in conventional studies. 
+%Clinical trials involving a few thousand human subjects are known to have difficulties in detecting ASEs that are rare or have a significant latency of development. 
+%Moreover, GLP-1 RAs were originally developed to treat T2D, as opposed to obesity. 
+%SMASH address this knowledge gap by identifying hidden, potentially novel ASEs.
+
+%Whereas, most studies use only a single domain data source. 
+%This study contributes to the computational data science and the healthcare research by developing an interdisciplinary approach, integrating data from diverse sources of pharmacological, social media, scientific literature, and ChatGPT to develop a novel computational algorithm and an analytical solution to a major healthcare problem.
+%The integration of diverse data sources allows for more holistic discovery of ASEs than standard pharmacovigilance strategies provide.
+%Here, the identified clusters, frequency distributions, and sentiments contribute to a nuanced understanding of the therapeutic landscape of GLP-1 RAs. 
+%Specifically, two important contributions of our study are that 53\% of ASEs reported by drug manufacturers have been mentioned on social media, and moreover, 21 ASEs found on social media have not been reported by manufacturers. These findings call for additional studies.
+
+%Furthermore, it is important to note ASEs reported very frequently on social media but not reported by manufacturers (Groups 2 and 5 in Fig. \ref{fig:venn}).
+%This discrepancy may stem from individuals using GLP-1 RAs for weight loss, diverging from the drug’s original indication of treating diabetes.
+%Academic studies and manufacturers reporting the frequency of ASEs often rely on clinical trials, while social media offers much more data.
+%Therefore, comparing the frequency of ASE mentions on social media to those reported in clinical trials was of great interest in the present study. 
+%In Fig. \ref{fig:drg_ase_35}, it is evident that the drug semaglutide (Ozempic) has the highest number of reported ASEs, followed by dulaglutide and liraglutide, respectively. 
+%However, as Ozempic is also the most-prescribed drug among those analyzed in this study, it is expected to have a higher frequency of reported ASEs. 
+%Our drug-ASE matrix analysis (Fig. \ref{fig:drg_ase_35}) highlights numerous prevalent ASEs based exclusively on social media reports. 
+%Additionally, comparing mentions of ASEs on social media in intervals of 14 days (Fig. \ref{fig:ASE_over_time}) to data from Google Trends (Fig. \ref{fig:Gtrends}), we found that the ASEs mentioned most frequently over time are nausea, pain, vomiting, and constipation.
+%To address RQ1, we identified ASEs solely based on raw social media discussions and constructed an ASE-ASE network (Fig. \ref{fig:graph}) $G$. 
+%In $G$, nodes represent ASEs, edges signify ASE co-occurrences in the same post, and the weight of an ASE-ASE edge represents the number of times this ASE co-occurrence pair was co-mentioned in the same post. 
+
+%Node clustering analysis of the ASE-ASE network revealed four clusters of ASEs, allowing a better understanding of their relationships:
+%Cluster 1 -- gastrointestinal distress; 
+%Cluster 2 -- emotional and mental strain syndromes; 
+%Cluster 3 -- somatic discomfort; and 
+%Cluster 4 -- neurological disorders. 
+%The presence of co-occurring ASEs is apparent (Fig \ref{fig:graph}), particularly with respect to Cluster 1 (light blue nodes), with strong and specific associations (thick network links/edges) among the common ASEs vomiting, nausea, migraines, fatigue, constipation, headache, and heartburn. 
+%This network analysis suggests that pairs of ASEs in Cluster 1 are frequently correlated with each other, and future work should examine in more detail the co-occurrence of these ASEs and compare these associations as reported by social media posts against manufacturers' reports and published literature.
+%Revealing groups of ASEs that commonly co-occur can highlight potential individual differences among GLP-1 receptor agonist users in terms of adverse effects experienced and provide insights into the interrelationships among different ASEs, potential mechanisms underlying adverse effects, and opportunities for personalized healthcare approaches that could utilize the complex, and sometimes rare, ASE-related relationships revealed by our analytical strategy.
+%Our data-analytic knowledge discovery approach can be used for any drug to bring to light currently unidentified or underreported side effects. 
+%---------------------------------------------
+%to the understanding of ASEs related to GLP-1 RAs through a multifaceted knowledge-discovery methodology that draws upon the IS domain. 
+%Our approach mines data from social media, extending beyond existing pharmacovigilance insights provided by drug manufacturers and clinical trials, to comprehensively identify and analyze the ASEs of GLP-1 RAs. 
+%Additionally, our incorporation of sentiment analysis provides unique insights into user perceptions of GLP-1 RAs.
+%Construction of an ASE-ASE network, based on co-mentioned ASEs in social media posts, representing a novel approach to revealing groups of ASEs with similar network patterns. 
+
+%---------------------------------------------
+\subsection{Managerial Implications}
+%---------------------------------------------
+Lack of comprehensive medical information on ASEs associated with new medications presents a significant challenge for stakeholders in healthcare, including patients, caregivers, healthcare providers, insurers, and policymakers as they must make decisions based on incomplete knowledge.
+For instance, unknowingly, physicians prescribe medications whose ASEs have the potential to harm their patients.
+The design of medical insurance plans may unintentionally influence the use of treatments in response to newly identified ASEs.
+
+
+To address these limitations, policymakers may pursue market intervention policies intended to advance the discovery of hidden ASEs and thus minimize damage to patients.
+The SMASH approach offers stakeholders a proactive solution by enabling the active collection of social media data to identify ASEs associated with new medications and to validate their confidence using the GCN model. A decision support system based on the SMASH approach can monitor emerging public health issues related to ASEs, facilitating timely implementation of regulatory interventions, adjustments in treatment guidelines, and enhancements of patient safety measures. Moreover, the SMASH approach can be adapted with appropriate modifications to detect emerging issues or safety concerns related to any medication, not only the GLP-1 RA group, using large-scale social media data, providing substantial implications for pharmacological safety assessment and public health.
+
+An enhanced version of our approach could inform medical care and drug regulatory decisions by improving ASE lists, thus contributing to better frequency estimates, increased understanding of co-occurrence probabilities, and more accurate predictions of ASE impacts on individuals.
+
+Moreover, specific social media data collected and filtered through SMASH can provide stakeholders with insights into public perceptions regarding GLP-1 RAs and other drugs and treatments through sentiment analysis, as demonstrated in this study for posts on $\mathbb{X}$. 
+Our analysis indicated that semaglutide has significantly more positive sentiment than lixisenatide and dulaglutide.
+Such differences in sentiments underscore the importance of considering not only ASEs but also user emotions associated with medications, since individual decisions regarding usage of a particular drug  can be influenced not only by their own perceptions but also by social media postings.
+Finally, SMASH can also be generalized and adapted for non-pharmacological product launches with appropriate modifications. 
+By leveraging the SMASH approach to monitor products on social media, stakeholders can enhance their understanding of the products' safety profiles and potential adverse impacts, leading to increased knowledge of the target market and more-responsive customer service.
+
+
+%\section{Conclusions}
+%\label{sec:conclusions}
+% Summary
+%The IS methodology implemented in SMASH improves our understanding of ASEs and can serve to refine prescription recommendations and accordingly reduce morbidity, thereby increasing positive outcomes for patients, physicians, and pharmaceutical companies alike.
+%SMASH paves the way for a new era of real-time pharmacovigilance, leveraging social media data to improve drug safety and public health outcomes.
+
+%---------------------------------------------
+%Obesity has become a major health concern globally, affecting over 650 million individuals around the world \cite{haththotuwa2020worldwide}. 
+%GLP-1 RAs used to treat obesity and T2D have demonstrated efficacy in reducing excess weight, improving comorbidities, and lowering blood sugar levels \cite{trujillo2021glp}. 
+%Because some GLP-1 RAs were approved quite recently, their complete ASE profiles might remain under-reported or be overlooked in conventional studies. 
+%Clinical trials involving a few thousand human subjects are known to have difficulties in detecting ASEs that are rare or have a significant latency of development. 
+%Moreover, GLP-1 RAs were originally developed to treat T2D, as opposed to obesity. 
+%To address this knowledge gap about ASEs, which poses risks for patients and physicians, we develop and present SMASH - a knowledge discovery approach that incorporates social media data and pharmacovigilance information to identify novel ASEs of GLP-1 RAs.
+
+%To identify ASEs in texts, we applied a Named Entity Recognition (NER) model to analyze posts from $\mathbb{X}$ and Reddit that discuss GLP-1 RAs, as well as academic papers that study GLP-1 RAs. 
+%We also gathered ASEs along with their frequency from ChatGPT and manufacturers’ reports.
+%Many ASEs are included in all of our datasets, yet 16 out of 134 (12\%) are reported exclusively by academic studies, 14 (10\%) solely by manufacturers, and 21 (15\%) only on social media.
+%Social media provides a vast and diverse source of information, as demonstrated here, capturing a broader spectrum of user perspectives than other data sources, including those that may not be apparent in clinical research. 
+%The ability of our method to identify potentially novel ASEs, validated by academic studies, thereby supporting hypothesis \textit{H1}, has been demonstrated by focusing on ASEs present in both social media and academic papers (Group 2 in Fig. \ref{fig:venn}) but not reported by manufacturers. 
+%Our modeling approach was able to identify 53\% of established ASEs reported by manufacturers and ChatGPT (Fig. \ref{fig:overlap}). 
+%The ability to identify established ASEs provides further confidence in our modeling approach for exploring novel ASEs and supporting their novelty. 
+%Notably, established ASEs declared by manufacturers but not identified on social media have Very Rare frequency, as observed in Groups 4 and 7 (Fig. \ref{fig:venn}), and therefore are less likely to be reported on social media.
+
+%Furthermore, it is important to note ASEs reported very frequently on social media but not reported by manufacturers (Groups 2 and 5 in Fig. \ref{fig:venn}).
+%This discrepancy may stem from individuals using GLP-1 RAs for weight loss, diverging from the drug’s original indication of treating diabetes.
+%Academic studies and manufacturers reporting the frequency of ASEs often rely on clinical trials, while social media offers much more data.
+%Therefore, comparing the frequency of ASE mentions on social media to those reported in clinical trials was of great interest in the present study. 
+%In Fig. \ref{fig:drg_ase_35}, it is evident that the drug semaglutide (Ozempic) has the highest number of reported ASEs, followed by dulaglutide and liraglutide, respectively. 
+%However, as Ozempic is also the most-prescribed drug among those analyzed in this study, it is expected to have a higher frequency of reported ASEs. 
+%Our drug-ASE matrix analysis (Fig. \ref{fig:drg_ase_35}) highlights numerous prevalent ASEs based exclusively on social media reports. 
+%Additionally, comparing mentions of ASEs on social media in intervals of 14 days (Fig. \ref{fig:ASE_over_time}) to data from Google Trends (Fig. \ref{fig:Gtrends}), we found that the ASEs mentioned most frequently over time are nausea, pain, vomiting, and constipation.
+%To address RQ1, we identified ASEs solely based on raw social media discussions and constructed an ASE-ASE network (Fig. \ref{fig:graph}) $G$. 
+%In $G$, nodes represent ASEs, edges signify ASE co-occurrences in the same post, and the weight of an ASE-ASE edge represents the number of times this ASE co-occurrence pair was co-mentioned in the same post. 
+
+%Node clustering analysis of the ASE-ASE network revealed four clusters of ASEs, allowing a better understanding of their relationships:
+%Cluster 1 -- gastrointestinal distress; 
+%Cluster 2 -- emotional and mental strain syndromes; 
+%Cluster 3 -- somatic discomfort; and 
+%Cluster 4 -- neurological disorders. 
+%The presence of co-occurring ASEs is apparent (Fig \ref{fig:graph}), particularly with respect to Cluster 1 (light blue nodes), with strong and specific associations (thick network links/edges) among the common ASEs vomiting, nausea, migraines, fatigue, constipation, headache, and heartburn. 
+%This network analysis suggests that pairs of ASEs in Cluster 1 are frequently correlated with each other, and future work should examine in more detail the co-occurrence of these ASEs and compare these associations as reported by social media posts against manufacturers' reports and published literature.
+%Revealing groups of ASEs that commonly co-occur can highlight potential individual differences among GLP-1 receptor agonist users in terms of adverse effects experienced and provide insights into the interrelationships among different ASEs, potential mechanisms underlying adverse effects, and opportunities for personalized healthcare approaches that could utilize the complex, and sometimes rare, ASE-related relationships revealed by our analytical strategy.
+ 
+%While assessing drug risks often relies on ASE frequencies gathered in clinical trials, we estimated the ASE frequency of GLP-1 RAs using social media data through means of a GCN model.
+%The model’s ability to successfully classify nodes as frequent or not (F1-score 0.79; AUC 0.82) demonstrates the power of considering interconnections among ASEs, supporting our Hypothesis \textit{H3}.
+%With further refinement, this model could potentially be used to inform medical care and drug regulatory decisions involving side effects of drugs, including developing more comprehensive lists of ASEs, improving estimates of ASE frequencies, understanding the probability of co-occurring ASEs, and predicting which ASEs are likely to affect particular individuals, given the affiliation of their current ASEs with other ASEs (Fig. \ref{fig:graph}).
+
+%Our sentiment analysis of $\mathbb{X}$ posts provides insights into public perceptions regarding GLP-1 RAs.
+%In our two ANOVA tests, we found no significant negative sentiment differences, but significant differences in distributions of positive sentiments. Tukey’s HSD test revealed that Ozempic had significantly more positive sentiment associated with it than Adlyxin, Bydureon, dulaglutide, lixisenatide, and Rybelsus. Figs. \ref{fig:sentiment} and \ref{fig:heatmap_pos} show that semaglutide has significantly more positive sentiment than lixisenatide and dulaglutide. 
+%The differences highlighted in Figs. \ref{fig:sentiment} and \ref{fig:heatmap_pos} suggest the importance of considering not only ASEs but also the emotions associated with these medications, as individuals' drug usage decisions can be influenced both by social media users' reports of ASEs and by these posters' subjective descriptions of their perceptions of the drugs.
+%Future work can assess in detail the specific words used to refer to each drug and examine the relationships among the words used in social media posts, sentiment analysis with respect to positive vs. negative expressions, and user-reported ASEs.
+
+%Our analytical approach can potentially aid in the timely implementation of regulatory interventions, adjustments in treatment guidelines, and enhancement of patient safety measures. Moreover, monitoring fluctuations in the frequency and patterns of reported ASEs on social media need not be limited to GLP-1 RAs.
+%The methods we use could enable detection of emerging issues or safety concerns related to any drug. 
+%Our comprehensive data analytics approach applied to large-scale social media data has substantial implications for drug safety assessment and for public health. The integration of diverse data sources allows for more holistic discovery of adverse effects than standard pharmacovigilance strategies provide.
+%Here, the identified clusters, frequency distributions, and sentiments contribute to a nuanced understanding of the therapeutic landscape of GLP-1 RAs. Specifically, two important contributions of our study are that only 53\% of ASEs reported by drug manufacturers have been mentioned on social media, and moreover, 21 ASEs found on social media have not been reported by manufacturers. These findings call for additional studies.
+%Future work could further examine the association of drug popularity and awareness in popular culture with the sentiments expressed about the drug on social media. 
+%Additional research could use data from private discussions on social media to compare the sentiments expressed there with those voiced in public fora.
+%Our data-analytic knowledge discovery approach can be used for any drug to bring to light currently unidentified or underreported side effects. 
+%Improving our understanding of the adverse effects of drugs in this way can serve to refine prescription recommendations and accordingly reduce  morbidity, thereby increasing positive outcomes for manufacturer, physician and patient alike.
+%Our approach paves the way for a new era of real-time pharmacovigilance, leveraging social media data to improve drug safety and public health outcomes.
+
+
+%\bmhead{Supplementary Information}
+
+%\bmhead{Acknowledgments}
+%Where included they should be brief. Grant or contribution numbers may be acknowledged.
+
+
+%\section*{Disclosure Statement}
+%No potential conflict of interest was reported by the authors.
+
+
+\section*{Acknowledgements}
+
+Will be completed upon acceptance notice.
+
+\begin{comment}
+ 
+Alon Bartal is a faculty member of The Information System Track within The School of Business Administration at Bar-Ilan University, Ramat Gan, Israel. He received his B.Sc., M.Sc., and Ph.D. degrees in Information Systems from Ben-Gurion University (BGU) of the Negev, Beer sheva, Israel. He completed postdoctoral fellowships at BGU and the Icahn School of Medicine at Mount Sinai, New York, NY, USA. His research focuses on mining and modeling complex graphs and networks, such as biological networks and social media, at all scales. Applications and tools include diffusion of information and influence in social networks, computational biology with an emphasis on disease-gene associations, machine learning, text mining and natural language processing, discourse modeling, and data mining. His work has been published in leading journals including Bioinformatics, Transaction of Knowledge and Data Engineering (TKDE), Scientific Reports, Social Networks, Information Sciences, and the American Journal of Obstetrics and Gynecology.
+
+Nava Pliskin
+Prior to her retirement in 2016 from Ben-Gurion University of the Negev, Israel, Nava Pliskin was a tenured Chaired Full Professor at the Department of Industrial Engineering and Management and Head of the Academic Program for the Israeli Air Force Flight Course. Her research has focused on management of information systems at the organizational and individual level as well as on technological assessment and forecasting. Since retiring she has volunteered to teach the course Coaching in Academic Writing. She spent 1996-1997 at the Harvard Business School as a chaired visiting professor. Her Ph.D. and S.M. degrees are from Harvard University and her B.Sc. degree is from Tel-Aviv University. She has published research papers in such leading journals as: Journal of the Association for Information Systems, Information Systems Management, Information & Management, and Decision Support Systems, Database for Advances in Information Systems.
+
+Kathleen M. Jagodnik is a Research Fellow in the Bartal Lab in the School of Business Administration at Bar-Ilan University in Ramat Gan, Israel. She is also a Research Fellow in the Department of Psychiatry at Harvard Medical School, Boston, Massachusetts, USA. Her research interests are wide-ranging and encompass a variety of integrative and cross-disciplinary topics, including human interactions and optimizing communication, the definition and spread of mis- and disinformation and associated social control, computational biology, bioinformatics, and psychiatry. Her work has been published in journals including Nature Communications, Bioinformatics, Scientific Reports, PLOS ONE, Nucleic Acids Research, Cell Systems, Journal of Affective Disorders, the American Journal of Obstetrics and Gynecology, and Current Neuropharmacology
+
+Abraham (Avi) Seidmann is the Everett W. Lord Distinguished Faculty Scholar of Information Systems and an Associate Research Director for Health Analytics and Digital Health at the Questrom Digital Business Institute. He is a national expert in Business and Medical Management, social media and digital Health, and Telemedicine. Prof Seidmann has led clinical and economic research in these areas for over 25 years. He has published over one hundred research articles and has over 9,900 research citations. In October 2012, he was named a “Distinguished Fellow” by the Information Systems Society of the Institute of Operations Research and Management Sciences (INFORMS).
+
+\end{comment}
+
+
+\section*{Availability of code and materials}
+All codes and datasets generated and analyzed in this study are available on GitHub: [Link is not given due to the blind review process]%https://github.com/bartala/GLP1.
+
+%https://github.com/bartala/GLP1. 
+%\item Authors' contributions:
+%Alon Bartal...
+
+
+%-----------------------------------------
+
+
+%%===========================================================================================%%
+%\bibliographystyle{bst/sn-chicago} 
+\bibliographystyle{bst/jmis.bst} 
+\bibliography{sn-bibliography}% common bib file
+
+%%===========================================================================================%%
+\newpage
+
+%------------------------------------------------------------------------
+\subsection*{Tables}
+%------------------------------------------------------------------------
+\begin{table}[h]
+\caption{Subreddits that were used to collect social media posts involving GLP-1 RAs.}
+\label{tbl:reddit}
+\centering
+\begin{tabular}{ll}
+\toprule
+Subreddit               & \# Members$^*$ \\
+\midrule
+r/diabetes            & 109K \\
+r/diabetes\_t2            & 29.4K \\
+r/GLP1       & 1.3K \\
+r/liraglutide            & 11.7K \\
+r/loseit         & 3900K \\
+r/MaintenancePhase             & 25.6K \\
+r/medicine           & 453K \\
+r/Ozempic                  & 50.1K \\
+r/OzempicForWeightLoss     & 13.7K \\
+r/semaglutidecompounds           & 7.2K \\
+r/Semaglutide              & 45K \\
+r/TheMorningToastSnark              & 11.6K \\
+r/trulicity              & 1.1K \\
+r/type2diabetes           & 8.4K \\
+\bottomrule
+\end{tabular}
+$^*$Number of members (in thousands) of each subreddit as of October 2, 2023.
+\end{table}
+
+
+\begin{table}[h]
+\caption{Last update dates and side effect URLs for GLP-1 RAs}
+\label{tbl:manu}
+\centering
+\begin{tabular}{|l|l|l|p{6cm}|}
+\hline
+\textbf{Drug Name} & \textbf{Brand Name} & \textbf{Last Update} & \textbf{Side Effects URL} \\
+\hline
+Exenatide & Byetta & 2009 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2009/021773s9s11s18s22s25lbl.pdf} \\
+Lixisenatide & Adlyxin & 2016 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2016/208471orig1s000lbl.pdf} \\
+Dulaglutide & Trulicity & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/125469s007s008lbl.pdf} \\
+Exenatide & Bydureon & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/209210s000lbl.pdf} \\
+Semaglutide & Ozempic & 2017 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/209637lbl.pdf} \\
+Liraglutide & Victoza & 2019 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/022341s031lbl.pdf} \\
+Semaglutide & Rybelsus & 2019 & \url{https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/213051s000lbl.pdf} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+\begin{table}[h]
+    \centering
+    \caption{Frequency of adverse side effect (ASE) mentions before and after the observed spike in mentions.}
+    \begin{tabular}{llll}
+    \toprule
+                Adverse Side Effect   & Pre-MAF & Post-MAF & Slope\\
+                \midrule
+                Anxiety & 18.0& 20.0 & +\\
+                Constipation& 29.0& 35.0 & +\\
+                Depression& 15.5& 15.5 & 0 \\
+                Fatigue& 17.6& 14.6 & -- \\
+                %Inflammation& 12.0& NA\\
+                Nausea& 39.1& 57.8 & +\\
+                Pain (abdominal pain, back pain) & 20.5& 36.0 & +\\
+                Vomiting& 20.5& 27.0 & +\\
+                %Migraine& NA& 12.0\\
+    \bottomrule
+    \end{tabular}
+     Positive slope (+); Negative slope (-); and no slope (`0').
+    \label{tbl:freq_before_after}
+\end{table}
+
+
+\begin{table}[h]
+    \centering
+    \caption{Categories of adverse side effects (ASEs) by normalized mention frequency ($\hat{M_f}$) on social media.}
+    \label{tbl:freq_1}
+    \begin{tabular}{llll}
+    \toprule
+    Category   &  Range & Number of ASEs\\
+    \midrule
+      Very Rare   &  $\hat{M_f} < 0.0001$ & 0 \\
+      Rare   & $  0.0001 \leq \hat{M_f} < 0.001$  & 0 \\
+      Infrequent   & $ 0.001 \leq \hat{M_f} < 0.01$ & 42 \\
+      Frequent   & $0.01 \leq \hat{M_f} < 0.1$ & 24 \\
+      Very Frequent   & $\hat{M_f} \geq  0.1$ & 12 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+%%===========================================================================================%%
+\newpage
+%------------------------------------------------------------------------
+\subsection*{Figures}
+%------------------------------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.56, trim={1cm 2.6cm 4cm 3cm}, clip]{images/methods.pdf}
+    \caption{The Data Flowchart of the SMASH methodology for monitoring and analyzing ASE signals.
+    In the current study, signals of GLP-1 RA are monitored and analyzed.}
+    \label{fig:methods}
+\end{figure}
+
+
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[scale=0.8, trim={0cm 0cm 0.8cm 0cm}, clip]{images/venn5.pdf}
+%    \caption{Venn diagram offering a visual representation of and distinction among ASEs.
+%    }
+%    \label{fig:venn}
+%\end
+
+
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[scale=1.0, trim={0cm 0cm 0.6cm 0cm}, clip]{images/venn5.pdf}
+    \caption{Venn diagram offering a visual representation of and distinction among ASEs.}
+    \label{fig:venn}
+\end{sidewaysfigure}
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7, trim={2cm 2.3cm 2cm 2.3cm}, clip]{images/overlap.pdf}
+    \caption{Overlap$_{f\%}$ score as a function of ${f\%}$.
+    Model fitting for Overlap score points using a log curve presents an excellent fit ($R^2=0.99$).
+    }
+    \label{fig:overlap}
+\end{figure}
+
+
+\begin{figure}[H]
+    \ContinuedFloat
+    \centering
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        \includegraphics[scale=0.5, trim={0cm 0cm 0cm 0cm}, clip]{images/1.pdf}
+        %\caption{Part B}
+        \label{fig:drg_ase_35a}
+    \end{subfigure}
+    \stepcounter{figure} % Manually increment the figure counter
+    \caption{ASE mention frequency ($>1$) on $\mathbb{X}$ and Reddit for each GLP-1 receptor agonist.}
+    \label{fig:drg_ase_35}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8, trim={7cm 3cm 10cm 7cm}, clip]{images/ASE_over_time.pdf}
+    \caption{ASEs mentions $> 10$ in each of the 14-day intervals on $\mathbb{X}$ and Reddit. 
+    %The X-axis shows 14-day intervals. 
+    %The Y-axis shows the log of the sum of ASE frequencies, a measure of how often each ASE was mentioned by social media users.
+    }
+    \label{fig:ASE_over_time}
+\end{figure} 
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45, trim={2cm 2.1cm 2cm 4cm}, clip]{images/GoogleTrends.pdf}
+    \caption{Google Trends queries for GLP-1 RAs on our \textit{Medication List}.
+        } 
+    \label{fig:Gtrends}
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[black, thick, dashed] (1.95, 2.7) -- (1.95, 7.6); % Adjust the coordinates as needed
+    \end{tikzpicture}
+\end{figure} 
+
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8, trim={8cm 3cm 7cm 3.5cm}, clip]{images/graph.pdf}
+    \caption{The ASE-ASE network $G$ based on social media posts.
+    }
+    \label{fig:graph}
+\end{figure}
+
+
+
+\begin{sidewaysfigure}
+    \centering
+    \includegraphics[scale=0.8, trim={0cm 0cm 0cm 0.8cm}, clip]{images/side_effect_distribution.pdf}
+    \caption{Long-tailed distribution of ASEs as aggregated groups by frequency of mentions on Reddit and $\mathbb{X}$.
+             }
+    \label{fig:ASE_mention}
+\end{sidewaysfigure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.74, trim={0cm 0cm 0cm 0.66cm}, clip]{images/tukey_hsd_plot_Twitter.pdf}
+    \begin{tikzpicture}[overlay]
+        \draw[dashed] (0.5,1.7) -- (0.5,10.35); % Add a dashed line at x = 0.5
+    \end{tikzpicture}
+    \caption{Sentiment analysis violin plots of positive (pos) and negative (neg) polarity groups for $\mathbb{X}$ posts with combined generic and brand names of GLP-1 RAs.
+             The mean value of each violin plot is denoted by a white horizontal line.}
+    \label{fig:sentiment}
+\end{figure}
+
+
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.56, trim={0.6cm 0.6cm 0cm 0cm}, clip]{images/tukey_hearmap_positive_x.pdf}
+    \caption{Heatmap visualizing the p-value results of Tukey’s HSD post-hoc test for positive sentiments of $\mathbb{X}$ posts discussing GLP-1 RA.}
+    \label{fig:heatmap_pos}
+\end{figure}
+
+\newpage
+%%===========================================================================================%%
+\begin{appendices}
+%%===========================================================================================%%
+
+\textbf{Supplementary File}
+
+\section{
+A list of GLP-1 receptor agonist adverse side effects (ASEs) identified in the datasets collected for this study.}
+\label{app1:All_ASEs}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{longtable}
+% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
+\begin{longtable}{llll}
+\caption{A list of GLP-1 receptor agonist adverse side effects (ASEs) identified in the five datasets collected for this study.}
+\\
+\hline
+ASE                                      & Frequency & Group Code & Group                  \\ \hline
+\endhead
+%
+\hline
+\endfoot
+%
+\endlastfoot
+%
+Inflammation                             & 1376      & 1    & All                     \\
+Hypoglycemia                             & 1006      & 1    & All                     \\
+Depression                               & 981       & 1    & All                     \\
+Diarrhea                                 & 951       & 1    & All                     \\
+Nausea                                   & 820       & 1    & All                     \\
+Increased Heart Rate                     & 736       & 1    & All                     \\
+Microalbuminuria                         & 678       & 1    & All                     \\
+Chills                                   & 446       & 1    & All                     \\
+Vomiting                                 & 404       & 1    & All                     \\
+Fatigue                                  & 390       & 1    & All                     \\
+Constipation                             & 333       & 1    & All                     \\
+Anxiety                                  & 320       & 1    & All                     \\
+Headaches                                & 245       & 1    & All                     \\
+Cramps                                   & 231       & 1    & All                     \\
+Thyroid Issues                           & 185       & 1    & All                     \\
+Gastritis                                & 168       & 1    & All                     \\
+Rash                                     & 118       & 1    & All                     \\
+Dizziness                                & 82        & 1    & All                     \\
+Hypertrophy                              & 82        & 1    & All                     \\
+Hypersensitivity                         & 80        & 1    & All                     \\
+Dyspepsia                                & 79        & 1    & All                     \\
+Swallowing Difficulty                    & 74        & 1    & All                     \\
+Thirst                                   & 68        & 1    & All                     \\
+Insomnia                                 & 65        & 1    & All                     \\
+Stress                                   & 61        & 1    & All                     \\
+Thrombosis                               & 44        & 1    & All                     \\
+Otitis                                   & 35        & 1    & All                     \\
+Jaundice                                 & 19        & 1    & All                     \\
+Cholestasis                              & 10        & 1    & All                     \\
+Cholelithiasis                           & 8         & 1    & All                     \\
+Hidradenitis                             & 6         & 1    & All                     \\
+Thromboembolism                          & 6         & 1    & All                     \\
+Chest Tightness                          & 5         & 1    & All                     \\
+Hyperglycemia                            & 5         & 1    & All                     \\
+Polyuria                                 & 5         & 1    & All                     \\
+Infarction                               & 729       & 2    & PubMed \& Social        \\
+Ulcerative Wounds                        & 681       & 2    & PubMed \& Social        \\
+Atherosclerosis                          & 567       & 2    & PubMed \& Social        \\
+Neuropathy                               & 334       & 2    & PubMed \& Social        \\
+Dehydration                              & 303       & 2    & PubMed \& Social        \\
+Hypothyroidism                           & 122       & 2    & PubMed \& Social        \\
+Hepatic Issues                           & 97        & 2    & PubMed \& Social        \\
+Trauma                                   & 90        & 2    & PubMed \& Social        \\
+Arthritis                                & 81        & 2    & PubMed \& Social        \\
+Arrhythmias                              & 77        & 2    & PubMed \& Social        \\
+Anorexia                                 & 69        & 2    & PubMed \& Social        \\
+Dementia                                 & 68        & 2    & PubMed \& Social        \\
+Ketosis                                  & 66        & 2    & PubMed \& Social        \\
+Allodynia                                & 56        & 2    & PubMed \& Social        \\
+Ketoacidosis                             & 54        & 2    & PubMed \& Social        \\
+Osteoarthritis                           & 54        & 2    & PubMed \& Social        \\
+Encephalopathy                           & 46        & 2    & PubMed \& Social        \\
+Mania                                    & 42        & 2    & PubMed \& Social        \\
+Hypotonia                                & 41        & 2    & PubMed \& Social        \\
+Palpitations                             & 41        & 2    & PubMed \& Social        \\
+Cholangitis                              & 40        & 2    & PubMed \& Social        \\
+Urticaria                                & 40        & 2    & PubMed \& Social        \\
+Cardiomyopathy                           & 38        & 2    & PubMed \& Social        \\
+Acidosis                                 & 36        & 2    & PubMed \& Social        \\
+Delusion                                 & 31        & 2    & PubMed \& Social        \\
+Erythema                                 & 30        & 2    & PubMed \& Social        \\
+Tachycardia                              & 30        & 2    & PubMed \& Social        \\
+Compulsive Behavior                      & 25        & 2    & PubMed \& Social        \\
+Gangrene                                 & 23        & 2    & PubMed \& Social        \\
+Pneumonia                                & 21        & 2    & PubMed \& Social        \\
+Osteomyelitis                            & 19        & 2    & PubMed \& Social        \\
+Amnesia                                  & 16        & 2    & PubMed \& Social        \\
+Lethargy                                 & 13        & 2    & PubMed \& Social        \\
+Malnutrition                             & 11        & 2    & PubMed \& Social        \\
+Fractures                                & 8         & 2    & PubMed \& Social        \\
+Retching                                 & 8         & 2    & PubMed \& Social        \\
+Bradycardia                              & 7         & 2    & PubMed \& Social        \\
+Fasciitis                                & 6         & 2    & PubMed \& Social        \\
+Glycosuria                               & 6         & 2    & PubMed \& Social        \\
+Hypercholesterolemia                     & 6         & 2    & PubMed \& Social        \\
+Neurotoxicity                            & 6         & 2    & PubMed \& Social        \\
+Bezoar                                   & 230       & 3    & PubMed                  \\
+Atheroma                                 & 91        & 3    & PubMed                  \\
+Hypoxia                                  & 68        & 3    & PubMed                  \\
+Nephrotoxicity                           & 67        & 3    & PubMed                  \\
+Pruritus (Itching)                       & 67        & 3    & PubMed                  \\
+Stiffness                                & 42        & 3    & PubMed                  \\
+Hyperphagia                              & 32        & 3    & PubMed                  \\
+Cardiotoxicity                           & 26        & 3    & PubMed                  \\
+Ischemia                                 & 24        & 3    & PubMed                  \\
+Polyneuropathies                         & 23        & 3    & PubMed                  \\
+Paresthesia                              & 20        & 3    & PubMed                  \\
+Hyperplasia                              & 18        & 3    & PubMed                  \\
+Arteriosclerosis                         & 8         & 3    & PubMed                  \\
+Demyelination                            & 8         & 3    & PubMed                  \\
+Dyskinesia                               & 8         & 3    & PubMed                  \\
+Hyperemia                                & 8         & 3    & PubMed                  \\
+Increase in Amylase                      & NA        & 4    & Manufacturers \& GPT    \\
+Serious Allergic Reaction                & NA        & 4    & Manufacturers \& GPT    \\
+Thyroid C-Cell Tumors                    & NA        & 4    & Manufacturers \& GPT    \\
+Injection Site Nodule                    & 14.5      & 4    & Manufacturers \& GPT    \\
+Sinus Tachycardia                        & 11.5      & 4    & Manufacturers \& GPT    \\
+Hair Loss                                & 6         & 4    & Manufacturers \& GPT    \\
+First-Degree Atrioventricular (AV) Block & 4.6       & 4    & Manufacturers \& GPT    \\
+Elevated Serum Lipase                    & 2.1       & 4    & Manufacturers \& GPT    \\
+Dysgeusia                                & 1.7       & 4    & Manufacturers \& GPT    \\
+High Calcitonin                          & 1.2       & 4    & Manufacturers \& GPT    \\
+Breast Cancer                            & 0.7       & 4    & Manufacturers \& GPT    \\
+Colorectal Neoplasms                     & 0.6       & 4    & Manufacturers \& GPT    \\
+Papillary Thyroid Cancer                 & 0.2       & 4    & Manufacturers \& GPT    \\
+Elevated Serum Amylase                   & 0.1       & 4    & Manufacturers \& GPT    \\
+Irritability                             & 58        & 5    & Social only             \\
+Burns                                    & 46        & 5    & Social only             \\
+Numbness                                 & 45        & 5    & Social only             \\
+Hypogonadism                             & 31        & 5    & Social only             \\
+Cough                                    & 26        & 5    & Social only             \\
+Paralysis                                & 24        & 5    & Social only             \\
+Anger                                    & 22        & 5    & Social only             \\
+Hoarseness                               & 22        & 5    & Social only             \\
+Bulimia                                  & 19        & 5    & Social only             \\
+Suicidal                                 & 18        & 5    & Social only             \\
+Anhedonia                                & 12        & 5    & Social only             \\
+Frustration                              & 12        & 5    & Social only             \\
+Onycholysis                              & 12        & 5    & Social only             \\
+Endometriosis                            & 11        & 5    & Social only             \\
+Ketonemia                                & 6         & 5    & Social only             \\
+Apathy                                   & 4         & 5    & Social only             \\
+Aura                                     & 4         & 5    & Social only             \\
+Hirsutism                                & 4         & 5    & Social only             \\
+Infertility                              & 4         & 5    & Social only             \\
+Narcolepsy                               & 4         & 5    & Social only             \\
+Snoring                                  & 4         & 5    & Social only             \\
+Eructation                               & 35        & 6    & Manufacturers \& Social \\
+Bloating                                 & 30        & 6    & Manufacturers \& Social \\
+Back Pain                                & 12        & 6    & Manufacturers \& Social \\
+Hepatotoxicity                           & 6         & 6    & Manufacturers \& Social \\
+Syncope                                  & 4.6       & 6    & Manufacturers \& Social \\
+Appendicitis                             & 3         & 6    & Manufacturers \& Social \\
+Blurred Vision                           & 15        & 7    & Pubmed \& manufacturers \\ \hline
+\label{tbl:ases}
+\end{longtable}
+The `Group', and `Group Code' columns correspond to Fig. \ref{fig:venn}.
+
+\section{Network Cluster Analysis Results}
+\label{app2:network_cluster}
+The cluster affiliation of Adverse Side Effects (ASEs) in Fig. \ref{fig:graph} are:
+
+\begin{itemize}
+    \item 
+Cluster 1 (light blue) contains 
+aches, acidosis, adenomyosis, apathy, auras, chills, cold, constipation, cramps, dehydration, diarrhea, distress, dizziness, drowsiness, endometriosis, fatigue, headache, heartburn, hiccups, hunger, ileus, labyrinthitis, lethargy, lightheadedness, migraines, nausea, overdosed, phobias, puberty, retching, tachycardia, thirst, vertigo, and vomiting. 
+    \item 
+Cluster 2 (red) contains 
+anger, anorexia, anxiety, bulimia, cardiomegaly, choking, cough, delirium, depressed, hypomania, hypotension, hysteria, insomnia, irritable, mania, neuropathy, numb, onycholysis, palpitations, shakiness, tinnitus, trauma, and worry. 
+    \item 
+Cluster 3 (green) contains 
+arthritis, burns, dermatitis, fibromyalgia, gastritis, hoarseness, hypertension, hyperthyroidism, hypothyroidism, inflammation, jaundice, ketonemia, ketosis, osteoarthritis, paralysis, pneumonia, rash, swallowing, and thyroiditis. 
+    \item 
+Cluster 4 (purple) contains 
+encephalitis and schizophrenia.
+\end{itemize}
+
+Additionally in Fig. \ref{fig:graph}, we revealed similar ASEs that affiliate with the same cluster, such as `headache' and `migraines'.
+
+
+\end{appendices}
+
+\end{document}
