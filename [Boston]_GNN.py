@@ -142,8 +142,8 @@ for train_idx, test_idx in skf.split(range(num_nodes), graph_data.y.numpy()):
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     criterion = torch.nn.NLLLoss()
 
-    train_loader = DataLoader([graph_data], batch_size=1, shuffle=False)
-    test_loader = DataLoader([graph_data], batch_size=1, shuffle=False)
+    train_loader = DataLoader([graph_data], batch_size=32, shuffle=False)
+    test_loader = DataLoader([graph_data], batch_size=32, shuffle=False)
 
     for epoch in range(num_epochs):
         model.train()
